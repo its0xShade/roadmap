@@ -1,0 +1,3573 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="برنامه نهایی یک‌ساله برای تبدیل‌شدن به AI Engineer — نقشه کامل ۱۲ ماه، ۵۲ هفته، ۴ فاز">
+<title>مسیر یک‌ساله AI Engineer | نقشه کامل یادگیری</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Claude-inspired warm palette — Light */
+  --bg: #FAF9F5;
+  --bg-soft: #F5F3EC;
+  --surface: #FFFFFF;
+  --surface-2: #F0EEE4;
+  --surface-3: #E8E5D9;
+  --text: #1F1E1D;
+  --text-soft: #3A3835;
+  --text-muted: #6B6862;
+  --text-faint: #9A968D;
+  --accent: #D97757;
+  --accent-hover: #C15F3C;
+  --accent-soft: #F5E6DE;
+  --accent-glow: rgba(217, 119, 87, 0.18);
+  --border: #E5E2D9;
+  --border-soft: #EDEAE0;
+  --green: #5E7B4F;
+  --green-soft: #E8EFE2;
+  --blue: #4A6B8A;
+  --blue-soft: #E3EBF1;
+  --gold: #B8893E;
+  --gold-soft: #F2E9D6;
+  --shadow-sm: 0 1px 2px rgba(31, 30, 29, 0.04), 0 1px 3px rgba(31, 30, 29, 0.06);
+  --shadow-md: 0 4px 12px rgba(31, 30, 29, 0.06), 0 2px 4px rgba(31, 30, 29, 0.04);
+  --shadow-lg: 0 12px 32px rgba(31, 30, 29, 0.08), 0 4px 12px rgba(31, 30, 29, 0.05);
+  --shadow-xl: 0 24px 60px rgba(31, 30, 29, 0.10), 0 8px 20px rgba(31, 30, 29, 0.06);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --font-body: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Source Serif 4', 'Vazirmatn', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'Vazirmatn', monospace;
+  --max-w: 1200px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  --bg: #1A1916;
+  --bg-soft: #221F1B;
+  --surface: #262320;
+  --surface-2: #2D2925;
+  --surface-3: #36312C;
+  --text: #F5F4ED;
+  --text-soft: #DCD8CE;
+  --text-muted: #A8A39B;
+  --text-faint: #736F68;
+  --accent: #E8855F;
+  --accent-hover: #F09875;
+  --accent-soft: #3A2620;
+  --accent-glow: rgba(232, 133, 95, 0.22);
+  --border: #36312C;
+  --border-soft: #2D2925;
+  --green: #8FAB7C;
+  --green-soft: #2A3326;
+  --blue: #8FAFCB;
+  --blue-soft: #232E38;
+  --gold: #D4A965;
+  --gold-soft: #38301D;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.35);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.45);
+  --shadow-xl: 0 24px 60px rgba(0,0,0,0.55);
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background var(--transition), color var(--transition);
+  overflow-x: hidden;
+}
+
+a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
+a:hover { color: var(--accent-hover); }
+
+::selection { background: var(--accent); color: #fff; }
+
+/* ===== Reading Progress Bar ===== */
+.reading-progress {
+  position: fixed;
+  top: 0; right: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+  z-index: 1001;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* ===== Top Navigation ===== */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(250, 249, 245, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-soft);
+  transition: background var(--transition), border-color var(--transition);
+}
+[data-theme="dark"] .topnav { background: rgba(26, 25, 22, 0.85); }
+
+.topnav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.brand-dot {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  display: grid; place-items: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px var(--accent-glow);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  flex: 1;
+  justify-content: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+
+.nav-links a {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-soft);
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: all var(--transition);
+}
+.nav-links a:hover { background: var(--surface-2); color: var(--accent); }
+
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+
+.theme-toggle {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-soft);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  transition: all var(--transition);
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(15deg); }
+
+.menu-toggle {
+  display: none;
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* ===== Layout Helpers ===== */
+.section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 80px 28px;
+  position: relative;
+}
+.section-narrow { max-width: 880px; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  padding: 6px 12px;
+  background: var(--accent-soft);
+  border-radius: 999px;
+  border: 1px solid var(--accent-glow);
+}
+.eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+
+.section-subtitle {
+  font-size: 17px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  padding: 100px 28px 80px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 60%;
+  height: 80%;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  filter: blur(60px);
+  z-index: -1;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 50%;
+  height: 70%;
+  background: radial-gradient(circle, rgba(94, 123, 79, 0.10) 0%, transparent 70%);
+  filter: blur(60px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--text-soft);
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-sm);
+}
+.hero-eyebrow .pulse {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  position: relative;
+}
+.hero-eyebrow .pulse::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: var(--green);
+  opacity: 0.4;
+  animation: pulse 2s ease-out infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 7vw, 78px);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 28px;
+  max-width: 900px;
+}
+.hero-title .accent {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 19px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 720px;
+  margin-bottom: 40px;
+}
+
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  border: 1px solid transparent;
+  font-family: var(--font-body);
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+.btn-ghost {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Hero stats */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+.stat { text-align: center; padding: 8px; }
+.stat-num {
+  font-family: var(--font-serif);
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.stat-num .unit { font-size: 18px; color: var(--text-muted); font-weight: 400; margin-right: 4px; }
+.stat-label { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+
+/* ===== Intro Block ===== */
+.intro-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+.intro-block::before {
+  content: '"';
+  position: absolute;
+  top: -40px; right: 20px;
+  font-family: var(--font-serif);
+  font-size: 200px;
+  color: var(--accent);
+  opacity: 0.08;
+  line-height: 1;
+  pointer-events: none;
+}
+.intro-block p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-soft);
+  margin-bottom: 16px;
+  position: relative;
+}
+.intro-block p:last-child { margin-bottom: 0; }
+.intro-block strong { color: var(--text); font-weight: 600; }
+
+/* ===== Phases Timeline ===== */
+.phases-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.phase-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+.phase-card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition);
+}
+.phase-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg);
+}
+.phase-card:hover::before { transform: scaleX(1); }
+
+.phase-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  border: 1px solid var(--accent-glow);
+}
+
+.phase-months {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  background: var(--surface-2);
+  border-radius: 6px;
+}
+
+.phase-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.phase-subtitle {
+  font-size: 15px;
+  color: var(--text-soft);
+  margin-bottom: 18px;
+  line-height: 1.7;
+}
+
+.phase-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.phase-skill {
+  font-size: 12px;
+  padding: 4px 10px;
+  background: var(--surface-2);
+  color: var(--text-soft);
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.phase-output {
+  padding-top: 18px;
+  border-top: 1px dashed var(--border);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.phase-output strong { color: var(--accent); font-weight: 600; }
+
+/* ===== Weekly Schedule ===== */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.schedule-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+.schedule-card.english { border-color: var(--blue-soft); }
+.schedule-card.english .schedule-icon { background: var(--blue-soft); color: var(--blue); }
+
+.schedule-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
+.schedule-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  gap: 12px;
+}
+.schedule-header h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+}
+.schedule-total {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+}
+.schedule-card.english .schedule-total { color: var(--blue); }
+
+.schedule-note {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.schedule-list { list-style: none; }
+.schedule-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+.schedule-item:last-child { border-bottom: none; }
+.schedule-item-name { font-size: 15px; color: var(--text-soft); font-weight: 500; }
+.schedule-item-desc { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.schedule-item-hours {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 6px 12px;
+  background: var(--accent-soft);
+  border-radius: 8px;
+  white-space: nowrap;
+}
+.schedule-card.english .schedule-item-hours { color: var(--blue); background: var(--blue-soft); }
+
+/* Daily pattern table */
+.daily-pattern {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px;
+}
+.daily-pattern h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.daily-pattern > p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+.daily-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.daily-table th, .daily-table td {
+  padding: 14px 16px;
+  text-align: right;
+  border-bottom: 1px solid var(--border-soft);
+}
+.daily-table th {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--surface-2);
+}
+.daily-table tr:last-child td { border-bottom: none; }
+.daily-table tr:hover td { background: var(--surface-2); }
+.daily-table .block-name { font-weight: 600; color: var(--text); }
+.daily-table .block-time {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-weight: 600;
+}
+.daily-table .total-row { background: var(--accent-soft); font-weight: 600; }
+.daily-table .total-row td { color: var(--accent); }
+
+.callout {
+  padding: 20px 24px;
+  background: var(--gold-soft);
+  border-right: 4px solid var(--gold);
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-soft);
+  margin-bottom: 16px;
+}
+.callout strong { color: var(--text); }
+
+/* ===== Months Accordion ===== */
+.months-list { display: flex; flex-direction: column; gap: 14px; }
+
+.month-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+.month-card.open {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+
+.month-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 28px;
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--transition);
+}
+.month-header:hover { background: var(--surface-2); }
+
+.month-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: var(--surface-2);
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+.month-card.open .month-num {
+  background: var(--accent);
+  color: #fff;
+}
+
+.month-info { flex: 1; min-width: 0; }
+.month-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.month-goal {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.month-chevron {
+  color: var(--text-muted);
+  font-size: 14px;
+  transition: transform var(--transition);
+  flex-shrink: 0;
+}
+.month-card.open .month-chevron { transform: rotate(180deg); color: var(--accent); }
+
+.month-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.month-card.open .month-body { max-height: 4000px; }
+
+.month-content {
+  padding: 0 28px 28px;
+  border-top: 1px dashed var(--border);
+  padding-top: 24px;
+}
+
+.week-block {
+  margin-bottom: 22px;
+  padding: 18px;
+  background: var(--surface-2);
+  border-radius: 12px;
+  border-right: 3px solid var(--accent);
+}
+.week-block:last-child { margin-bottom: 0; }
+
+.week-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+.week-list {
+  list-style: none;
+  padding: 0;
+}
+.week-list li {
+  position: relative;
+  padding-right: 22px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-soft);
+}
+.week-list li::before {
+  content: '';
+  position: absolute;
+  right: 4px;
+  top: 11px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.6;
+}
+.week-list li:last-child { margin-bottom: 0; }
+.week-list code {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  background: var(--surface);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--accent);
+  border: 1px solid var(--border);
+}
+
+.month-resources {
+  margin-top: 18px;
+  padding: 16px;
+  background: var(--bg-soft);
+  border-radius: 10px;
+  border: 1px solid var(--border-soft);
+}
+.month-resources-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+.month-resources a {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 13px;
+  padding: 4px 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 6px;
+  color: var(--text-soft);
+}
+.month-resources a:hover { border-color: var(--accent); color: var(--accent); }
+
+.month-output {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: var(--green-soft);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+.month-output strong { color: var(--green); font-weight: 600; }
+
+/* ===== Algorithm Section ===== */
+.algo-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.algo-table-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  overflow-x: auto;
+}
+.algo-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.algo-table th, .algo-table td {
+  padding: 12px 14px;
+  text-align: right;
+  border-bottom: 1px solid var(--border-soft);
+}
+.algo-table th {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--surface-2);
+  font-weight: 600;
+}
+.algo-table .course {
+  font-weight: 600;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+.algo-table tr:hover td { background: var(--surface-2); }
+
+.golden-rules {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  height: fit-content;
+}
+.golden-rules h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+.golden-rules ol {
+  padding-right: 20px;
+  counter-reset: rule;
+  list-style: none;
+}
+.golden-rules ol li {
+  counter-increment: rule;
+  position: relative;
+  padding-right: 36px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-soft);
+}
+.golden-rules ol li::before {
+  content: counter(rule);
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+/* ===== Resources Library ===== */
+.resource-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.filter-chip {
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: var(--font-body);
+}
+.filter-chip:hover { border-color: var(--accent); color: var(--accent); }
+.filter-chip.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.resource-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.resource-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+.resource-card .res-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  padding: 3px 8px;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+.resource-card h4 {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.resource-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.resource-card .res-when {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+.resource-card a.res-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+  margin-left: 6px;
+}
+
+/* ===== English Section ===== */
+.english-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.english-daily {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+.english-daily h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.english-daily > p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.english-activity {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-soft);
+  align-items: center;
+}
+.english-activity:last-child { border-bottom: none; }
+.english-activity-name { font-size: 14px; font-weight: 500; color: var(--text); }
+.english-activity-method { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.english-activity-time {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue);
+  padding: 4px 10px;
+  background: var(--blue-soft);
+  border-radius: 6px;
+}
+
+.english-progression {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+.english-progression h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+.english-month {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--border-soft);
+  align-items: start;
+}
+.english-month:last-child { border-bottom: none; }
+.english-month-num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--blue);
+  padding: 4px 8px;
+  background: var(--blue-soft);
+  border-radius: 6px;
+  text-align: center;
+}
+.english-month-text { font-size: 14px; line-height: 1.6; color: var(--text-soft); }
+
+/* ===== People to Follow ===== */
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 18px;
+}
+.person-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: all var(--transition);
+}
+.person-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+.person-avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--gold) 100%);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.person-info h4 {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+.person-info .person-role {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.person-info p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.person-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.person-link {
+  font-size: 12px;
+  padding: 4px 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-soft);
+  font-weight: 500;
+}
+.person-link:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== Career Section ===== */
+.career-stages {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+.career-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 600px;
+}
+.career-table th, .career-table td {
+  padding: 14px 16px;
+  text-align: right;
+  border-bottom: 1px solid var(--border-soft);
+  vertical-align: top;
+}
+.career-table th {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--surface-2);
+  font-weight: 600;
+}
+.career-table .stage-period {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 13px;
+}
+.career-table .stage-title { font-weight: 600; color: var(--text); }
+.career-table tr:hover td { background: var(--surface-2); }
+
+.career-checklist {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+.career-checklist h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+.career-checklist ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+.career-checklist li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-soft);
+  padding: 10px 14px;
+  background: var(--surface-2);
+  border-radius: 8px;
+}
+.career-checklist li::before {
+  content: '◆';
+  color: var(--accent);
+  font-size: 10px;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+/* ===== AI Lab Section ===== */
+.lab-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.lab-intro {
+  background: linear-gradient(135deg, var(--accent-soft) 0%, var(--surface) 100%);
+  border: 1px solid var(--accent-glow);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.lab-intro::before {
+  content: '⚗';
+  position: absolute;
+  bottom: -20px; left: -10px;
+  font-size: 180px;
+  opacity: 0.06;
+  color: var(--accent);
+  line-height: 1;
+}
+.lab-intro h3 {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+.lab-intro p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-soft);
+  margin-bottom: 16px;
+}
+.lab-stages {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.lab-stage {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 13px;
+  color: var(--text-soft);
+}
+.lab-stage-num {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.lab-template {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+.lab-template h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+.lab-question {
+  padding: 14px;
+  background: var(--surface-2);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: var(--text-soft);
+  border-right: 3px solid var(--accent);
+}
+.lab-question strong { color: var(--accent); display: block; margin-bottom: 4px; font-size: 13px; }
+
+/* ===== Progress Tracker ===== */
+.tracker-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+}
+
+.tracker-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+}
+
+.tracker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.tracker-header h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+}
+.tracker-counter {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 6px 12px;
+  background: var(--accent-soft);
+  border-radius: 999px;
+}
+
+.tracker-progress-bar {
+  height: 8px;
+  background: var(--surface-2);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.tracker-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.checklist { list-style: none; }
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background var(--transition);
+  user-select: none;
+}
+.checklist-item:hover { background: var(--surface-2); }
+.checklist-item.done .checklist-label { color: var(--text-muted); text-decoration: line-through; }
+
+.checkbox {
+  width: 24px; height: 24px;
+  border: 2px solid var(--border);
+  border-radius: 7px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  transition: all var(--transition);
+  background: var(--surface);
+}
+.checklist-item.done .checkbox {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.checkbox::after {
+  content: '✓';
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.checklist-item.done .checkbox::after { opacity: 1; }
+
+.checklist-content { flex: 1; }
+.checklist-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  transition: all var(--transition);
+}
+.checklist-cat {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.tracker-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-soft);
+}
+.tracker-btn {
+  padding: 8px 14px;
+  font-size: 13px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-soft);
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all var(--transition);
+}
+.tracker-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.reflection-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  height: fit-content;
+}
+.reflection-card h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.reflection-card > p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.reflection-q {
+  padding: 16px;
+  background: var(--surface-2);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.6;
+  border-right: 3px solid var(--accent);
+}
+.reflection-q strong { color: var(--text); display: block; margin-bottom: 4px; font-family: var(--font-serif); }
+
+/* ===== Goals Table ===== */
+.goals-table-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  overflow-x: auto;
+}
+.goals-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 600px;
+}
+.goals-table th, .goals-table td {
+  padding: 14px 16px;
+  text-align: right;
+  border-bottom: 1px solid var(--border-soft);
+  vertical-align: top;
+}
+.goals-table th {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--surface-2);
+  font-weight: 600;
+}
+.goals-table .goal-area {
+  font-weight: 600;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.goals-table tr:hover td { background: var(--surface-2); }
+
+/* ===== Summary Section ===== */
+.summary-section {
+  background: linear-gradient(135deg, var(--accent-soft) 0%, var(--bg-soft) 100%);
+  border-radius: var(--radius-xl);
+  padding: 56px 48px;
+  text-align: center;
+  border: 1px solid var(--accent-glow);
+  position: relative;
+  overflow: hidden;
+}
+.summary-section::before {
+  content: '';
+  position: absolute;
+  top: -40%; left: 50%;
+  transform: translateX(-50%);
+  width: 80%; height: 80%;
+  background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+.summary-section h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: var(--text);
+  position: relative;
+  line-height: 1.3;
+}
+.summary-section p {
+  font-size: 17px;
+  color: var(--text-soft);
+  line-height: 1.8;
+  max-width: 720px;
+  margin: 0 auto 28px;
+  position: relative;
+}
+.summary-path {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 24px;
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  margin-bottom: 28px;
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-soft);
+  max-width: 100%;
+}
+.summary-path .arrow {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ===== Footer ===== */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 28px;
+  text-align: center;
+  background: var(--bg-soft);
+}
+footer p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+footer .footer-brand {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  transition: all var(--transition);
+  cursor: pointer;
+  font-family: var(--font-body);
+  margin-top: 12px;
+}
+.back-to-top:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+/* ===== Reveal Animation ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== Mobile Menu ===== */
+@media (max-width: 980px) {
+  .nav-links { display: none; }
+  .menu-toggle { display: grid; place-items: center; }
+  .nav-links.open {
+    display: flex;
+    position: absolute;
+    top: 100%; right: 0; left: 0;
+    flex-direction: column;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 28px;
+    align-items: stretch;
+    box-shadow: var(--shadow-md);
+  }
+  .nav-links.open a { padding: 12px; border-radius: 8px; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .schedule-grid, .algo-grid, .english-grid, .lab-grid, .tracker-grid {
+    grid-template-columns: 1fr;
+  }
+  .phases-grid { grid-template-columns: 1fr; }
+  .section { padding: 60px 20px; }
+  .hero { padding: 60px 20px 50px; }
+  .summary-section { padding: 40px 24px; }
+}
+
+@media (max-width: 560px) {
+  .hero-stats { grid-template-columns: 1fr 1fr; gap: 12px; padding: 20px; }
+  .stat-num { font-size: 30px; }
+  .intro-block, .phase-card, .month-content, .month-header { padding: 22px; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .btn { justify-content: center; }
+}
+
+/* Print */
+@media print {
+  .topnav, .reading-progress, .back-to-top, .theme-toggle, .menu-toggle, .hero-actions { display: none !important; }
+  .month-body { max-height: none !important; }
+  body { background: #fff; color: #000; }
+  .section { page-break-inside: avoid; padding: 20px; }
+}
+</style>
+</head>
+<body>
+<div class="reading-progress" id="readingProgress"></div>
+
+<!-- TOP NAV -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-dot">AI</span>
+      <span>مسیر یک‌ساله AI Engineer</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#intro">مقدمه</a></li>
+      <li><a href="#phases">فازها</a></li>
+      <li><a href="#weekly">برنامه هفتگی</a></li>
+      <li><a href="#months">ماه‌به‌ماه</a></li>
+      <li><a href="#algorithm">الگوریتم</a></li>
+      <li><a href="#resources">منابع</a></li>
+      <li><a href="#english">انگلیسی</a></li>
+      <li><a href="#people">افراد</a></li>
+      <li><a href="#career">شغل</a></li>
+      <li><a href="#lab">آزمایشگاه</a></li>
+      <li><a href="#progress">پیگیری</a></li>
+      <li><a href="#goals">اهداف</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم">🌙</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="منو">☰</button>
+    </div>
+  </div>
+</nav>
+
+<span id="top"></span>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-eyebrow">
+    <span class="pulse"></span>
+    <span>برنامه شخصی‌سازی‌شده · ۱۲ ماه · ۵۲ هفته</span>
+  </div>
+  <h1 class="hero-title">
+    مسیر یک‌ساله تو برای<br>
+    تبدیل‌شدن به <span class="accent">AI Engineer</span>
+  </h1>
+  <p class="hero-desc">
+    هدف این نیست که طی یک سال فقط چند دوره تمام کنی یا با چند ابزار هوش مصنوعی کارکردن را یاد بگیری. هدف این است که در پایان این مسیر، بتوانی یک محصول مبتنی بر هوش مصنوعی را از ایده تا پیاده‌سازی، ارزیابی، استقرار و ارائه به کاربر جلو ببری؛ درک مناسبی از ML داشته باشی، بتوانی کد قابل‌نگهداری بنویسی و برای فرصت‌های شغلی مرتبط اقدام کنی.
+  </p>
+  <div class="hero-actions">
+    <a href="#phases" class="btn btn-primary">
+      <span>شروع مسیر</span>
+      <span>←</span>
+    </a>
+    <a href="#progress" class="btn btn-ghost">
+      <span>پیگیری پیشرفت</span>
+    </a>
+    <button class="btn btn-ghost" onclick="window.print()">
+      <span>چاپ / ذخیره PDF</span>
+    </button>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num" data-target="12"><span class="counter">0</span><span class="unit">ماه</span></div>
+      <div class="stat-label">زمان کامل مسیر</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="52"><span class="counter">0</span><span class="unit">هفته</span></div>
+      <div class="stat-label">برنامه گام‌به‌گام</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="4"><span class="counter">0</span><span class="unit">فاز</span></div>
+      <div class="stat-label">از مبتدی تا استخدام</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="41"><span class="counter">0</span><span class="unit">ساعت</span></div>
+      <div class="stat-label">در هفته برای AI</div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== INTRO ===== -->
+<section class="section section-narrow" id="intro">
+  <span class="eyebrow">مقدمه</span>
+  <h2 class="section-title">این برنامه بر اساس تو ساخته شده</h2>
+  <p class="section-subtitle">
+    برنامه را بر اساس اطلاعاتی که قبلاً دادی تنظیم می‌کنم: در برنامه‌نویسی هنوز در ابتدای مسیر هستی، ریاضی‌ات متوسط است، انگلیسی‌ات مبتدی است، هدفت درآمد و استخدام است و در عین حال واقعاً به AI علاقه داری. همچنین می‌توانی حدود ۴۰ تا ۴۲ ساعت در هفته برای برنامه‌نویسی و AI و ۷ تا ۸ ساعت برای انگلیسی وقت بگذاری.
+  </p>
+  <div class="intro-block reveal">
+    <p>
+      <strong>هدف ما این نیست که طی یک سال فقط چند دوره تمام کنی.</strong> هدف این است که در پایان این مسیر، بتوانی یک محصول مبتنی بر هوش مصنوعی را از ایده تا پیاده‌سازی، ارزیابی، استقرار و ارائه به کاربر جلو ببری؛ درک مناسبی از ML داشته باشی، بتوانی کد قابل‌نگهداری بنویسی و برای فرصت‌های شغلی مرتبط اقدام کنی.
+    </p>
+    <p>
+      این برنامه را به‌عنوان نقشه اصلی نگه دار؛ هر هفته اجرا کن، هر ماه بازبینی کن و بر اساس پروژه‌هایی که واقعاً ساخته‌ای، مسیر را اصلاح کن. لازم نیست از روز اول همه چیز را بدانی — کافی است در هر مرحله، یک مهارت را به سطحی برسانی که بتوانی با آن چیزی واقعی بسازی.
+    </p>
+  </div>
+</section>
+
+<!-- ===== PHASES TIMELINE ===== -->
+<section class="section" id="phases">
+  <span class="eyebrow">نقشه نهایی مسیر</span>
+  <h2 class="section-title">چهار فاز تا تبدیل‌شدن به AI Engineer</h2>
+  <p class="section-subtitle">
+    مسیر تو از برنامه‌نویسی مقدماتی شروع می‌شود، از ساخت AI App عبور می‌کند، به مهندسی AI می‌رسد و در نهایت با آمادگی شغلی تمام می‌شود. هر فاز خروجی مشخصی دارد که می‌توانی آن را در پورتفولیوی خودت بگذاری.
+  </p>
+  <div class="phases-grid">
+    <article class="phase-card reveal">
+      <div class="phase-num">۱</div>
+      <div class="phase-months">ماه‌های ۱ تا ۳</div>
+      <h3 class="phase-title">از مبتدی تا برنامه‌نویس مستقل</h3>
+      <p class="phase-subtitle">Python، Git، الگوریتم، SQL، تست و تحلیل داده</p>
+      <div class="phase-skills">
+        <span class="phase-skill">Python</span>
+        <span class="phase-skill">Git</span>
+        <span class="phase-skill">SQL</span>
+        <span class="phase-skill">الگوریتم</span>
+        <span class="phase-skill">تست</span>
+        <span class="phase-skill">pandas</span>
+      </div>
+      <div class="phase-output">
+        <strong>خروجی:</strong> ۲ پروژه کوچک و یک پروژه تحلیل داده، همراه با GitHub مرتب.
+      </div>
+    </article>
+
+    <article class="phase-card reveal">
+      <div class="phase-num">۲</div>
+      <div class="phase-months">ماه‌های ۴ تا ۶</div>
+      <h3 class="phase-title">از برنامه‌نویسی تا ساخت AI App</h3>
+      <p class="phase-subtitle">آمار، Machine Learning، FastAPI، دیتابیس و LLM API</p>
+      <div class="phase-skills">
+        <span class="phase-skill">آمار</span>
+        <span class="phase-skill">ML</span>
+        <span class="phase-skill">FastAPI</span>
+        <span class="phase-skill">SQL</span>
+        <span class="phase-skill">LLM API</span>
+        <span class="phase-skill">scikit-learn</span>
+      </div>
+      <div class="phase-output">
+        <strong>خروجی:</strong> یک پروژه ML و یک اپلیکیشن کاربردی مبتنی بر مدل زبانی.
+      </div>
+    </article>
+
+    <article class="phase-card reveal">
+      <div class="phase-num">۳</div>
+      <div class="phase-months">ماه‌های ۷ تا ۹</div>
+      <h3 class="phase-title">از AI App تا AI Engineering</h3>
+      <p class="phase-subtitle">RAG، جست‌وجوی معنایی، ارزیابی، امنیت و workflowها</p>
+      <div class="phase-skills">
+        <span class="phase-skill">RAG</span>
+        <span class="phase-skill">Embeddings</span>
+        <span class="phase-skill">Evaluation</span>
+        <span class="phase-skill">Security</span>
+        <span class="phase-skill">Tool Calling</span>
+      </div>
+      <div class="phase-output">
+        <strong>خروجی:</strong> یک سیستم AI که کیفیت، خطاها و محدودیت‌هایش را اندازه‌گیری می‌کنی.
+      </div>
+    </article>
+
+    <article class="phase-card reveal">
+      <div class="phase-num">۴</div>
+      <div class="phase-months">ماه‌های ۱۰ تا ۱۲</div>
+      <h3 class="phase-title">از ساخت پروژه تا آمادگی شغلی</h3>
+      <p class="phase-subtitle">Docker، استقرار، پروژه نهایی، رزومه، مصاحبه و درخواست شغلی</p>
+      <div class="phase-skills">
+        <span class="phase-skill">Docker</span>
+        <span class="phase-skill">Deployment</span>
+        <span class="phase-skill">CI/CD</span>
+        <span class="phase-skill">Portfolio</span>
+        <span class="phase-skill">مصاحبه</span>
+      </div>
+      <div class="phase-output">
+        <strong>خروجی:</strong> پورتفولیوی قابل‌ارائه و شروع جدی درخواست برای موقعیت‌های مناسب.
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== WEEKLY SCHEDULE ===== -->
+<section class="section" id="weekly">
+  <span class="eyebrow">۱. زمان‌بندی هفتگی ثابت</span>
+  <h2 class="section-title">برنامه را طوری می‌چینیم که همه چیز جای خودش را داشته باشد</h2>
+  <p class="section-subtitle">
+    یادگیری، تمرین مستقل، پروژه، الگوریتم و کنجکاوی علمی همگی جای خودشان را دارند. این سهم‌بندی نقطه شروع است؛ در ماه‌های اول بخش بیشتری از زمان الگوریتم صرف تمرین Python می‌شود و در ماه‌های پایانی سهم پروژه، تست و مهندسی سیستم افزایش پیدا می‌کند.
+  </p>
+
+  <div class="schedule-grid">
+    <div class="schedule-card reveal">
+      <div class="schedule-icon">⚡</div>
+      <div class="schedule-header">
+        <h3>AI و برنامه‌نویسی</h3>
+        <div class="schedule-total">۴۱ ساعت</div>
+      </div>
+      <p class="schedule-note">هدف هفتگی — ۶ روز مطالعه</p>
+      <ul class="schedule-list">
+        <li class="schedule-item">
+          <div>
+            <div class="schedule-item-name">یادگیری هدایت‌شده</div>
+            <div class="schedule-item-desc">دوره، مستندات و مطالعه</div>
+          </div>
+          <div class="schedule-item-hours">۸ ساعت</div>
+        </li>
+        <li class="schedule-item">
+          <div>
+            <div class="schedule-item-name">کدنویسی و پروژه</div>
+            <div class="schedule-item-desc">ساخت مستقل و پیاده‌سازی</div>
+          </div>
+          <div class="schedule-item-hours">۱۶ ساعت</div>
+        </li>
+        <li class="schedule-item">
+          <div>
+            <div class="schedule-item-name">الگوریتم و SQL</div>
+            <div class="schedule-item-desc">حل مسئله و مرور</div>
+          </div>
+          <div class="schedule-item-hours">۷ ساعت</div>
+        </li>
+        <li class="schedule-item">
+          <div>
+            <div class="schedule-item-name">تست، دیباگ و مرور</div>
+            <div class="schedule-item-desc">کیفیت کد و رفع اشکال</div>
+          </div>
+          <div class="schedule-item-hours">۶ ساعت</div>
+        </li>
+        <li class="schedule-item">
+          <div>
+            <div class="schedule-item-name">آزمایشگاه کنجکاوی AI</div>
+            <div class="schedule-item-desc">ویدئو، مقاله و آزمایش کوچک</div>
+          </div>
+          <div class="schedule-item-hours">۴ ساعت</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="schedule-card english reveal">
+      <div class="schedule-icon">📖</div>
+      <div class="schedule-header">
+        <h3>انگلیسی</h3>
+        <div class="schedule-total">۷٫۵ ساعت</div>
+      </div>
+      <p class="schedule-note">۶ روز در هفته، روزی ۷۵ دقیقه</p>
+      <ul class="schedule-list">
+        <li class="schedule-item">
+          <div>
+            <div class="schedule-item-name">لغت</div>
+            <div class="schedule-item-desc">۵ تا ۱۰ لغت با جمله نمونه</div>
+          </div>
+          <div class="schedule-item-hours">۱۵ دقیقه</div>
+        </li>
+        <li class="schedule-item">
+          <div>
+            <div class="schedule-item-name">گرامر</div>
+            <div class="schedule-item-desc">یک موضوع کوچک و تمرین</div>
+          </div>
+          <div class="schedule-item-hours">۱۵ دقیقه</div>
+        </li>
+        <li class="schedule-item">
+          <div>
+            <div class="schedule-item-name">شنیدار و تلفظ</div>
+            <div class="schedule-item-desc">گوش‌دادن و تکرار با صدا</div>
+          </div>
+          <div class="schedule-item-hours">۲۰ دقیقه</div>
+        </li>
+        <li class="schedule-item">
+          <div>
+            <div class="schedule-item-name">خواندن</div>
+            <div class="schedule-item-desc">متن متناسب با سطح</div>
+          </div>
+          <div class="schedule-item-hours">۱۵ دقیقه</div>
+        </li>
+        <li class="schedule-item">
+          <div>
+            <div class="schedule-item-name">نوشتن یا صحبت</div>
+            <div class="schedule-item-desc">معرفی یا شرح پروژه</div>
+          </div>
+          <div class="schedule-item-hours">۱۰ دقیقه</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="daily-pattern reveal">
+    <h3>الگوی روزانه پیشنهادی</h3>
+    <p>در هر یک از ۶ روز مطالعه، این ترتیب را دنبال کن. ساعت شروع را خودت با سبک زندگی‌ات تنظیم کن.</p>
+    <table class="daily-table">
+      <thead>
+        <tr>
+          <th>بلوک</th>
+          <th>مدت</th>
+          <th>کار</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="block-name">بلوک اول</td><td class="block-time">۹۰ دقیقه</td><td>یادگیری موضوع جدید</td></tr>
+        <tr><td class="block-name">بلوک دوم</td><td class="block-time">۱۲۰ دقیقه</td><td>تمرین کدنویسی و حل مسئله</td></tr>
+        <tr><td class="block-name">بلوک سوم</td><td class="block-time">۱۲۰ دقیقه</td><td>پیاده‌سازی پروژه</td></tr>
+        <tr><td class="block-name">بلوک چهارم</td><td class="block-time">۸۰ دقیقه</td><td>تست، دیباگ، مستندات و مرور</td></tr>
+        <tr class="total-row"><td>جمع AI و برنامه‌نویسی</td><td>۶ ساعت و ۵۰ دقیقه</td><td>—</td></tr>
+        <tr><td class="block-name">انگلیسی</td><td class="block-time">۷۵ دقیقه</td><td>تمرین جداگانه یا تقسیم‌شده در طول روز</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout reveal">
+    <strong>نکته مهم:</strong> چهار ساعت کنجکاوی AI در جدول هفتگی از زمان یادگیری هدایت‌شده، پروژه و مرور تأمین می‌شود؛ لازم نیست ۴ ساعت دیگر به ۴۱ ساعت اضافه کنی. یک روز در هفته را برای استراحت واقعی، پیاده‌روی، تفریح یا مرور سبک نگه دار. اگر روزی انرژی‌ات کم بود، برنامه سبک‌تر داشته باش: حدود ۳ ساعت AI و ۳۰ دقیقه انگلیسی. جبران عقب‌افتادگی نباید به یک چرخه فرسایشی تبدیل شود.
+  </div>
+</section>
+
+<!-- ===== MONTHS ACCORDION ===== -->
+<section class="section" id="months">
+  <span class="eyebrow">۲. نقشه اجرایی ماه‌به‌ماه و هفته‌به‌هفته</span>
+  <h2 class="section-title">۱۲ ماه، ۵۲ هفته — جزئیات کامل</h2>
+  <p class="section-subtitle">
+    روی هر ماه کلیک کن تا هفته‌های آن باز شود. هر هفته شامل کارهای مشخص، تمرین‌ها و خروجی‌های قابل‌اندازه‌گیری است. اگر در حلقه‌ها، توابع و دیکشنری‌ها مشکل داری، ماه را با عجله تمام نکن.
+  </p>
+
+  <div class="months-list">
+
+    <!-- Month 1 -->
+    <article class="month-card">
+      <div class="month-header">
+        <div class="month-num">۱</div>
+        <div class="month-info">
+          <div class="month-title">Python و عادت درست یادگیری</div>
+          <div class="month-goal">هدف: بتوانی برنامه‌های کوچک را بدون کپی‌کردن خط‌به‌خط از آموزش بنویسی.</div>
+        </div>
+        <div class="month-chevron">▼</div>
+      </div>
+      <div class="month-body">
+        <div class="month-content">
+          <div class="week-block">
+            <div class="week-title">هفته ۱ — محیط کار و مبانی Python</div>
+            <ul class="week-list">
+              <li>نصب Python و یک ویرایشگر، کار با ترمینال و اجرای اسکریپت.</li>
+              <li>متغیرها، انواع داده، ورودی و خروجی، عملگرها و تبدیل نوع.</li>
+              <li>Git و GitHub: ساخت مخزن و ثبت اولین commit.</li>
+              <li>تمرین: ماشین‌حساب ساده، تبدیل واحد و محاسبه‌گر هزینه.</li>
+              <li>انگلیسی: معرفی خودت و یادگیری جمله‌های ساده درباره برنامه روزانه.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۲ — شرط‌ها، حلقه‌ها و رشته‌ها</div>
+            <ul class="week-list">
+              <li><code>if/elif/else</code>، حلقه‌های <code>for</code> و <code>while</code>، رشته‌ها و متدهای آن‌ها.</li>
+              <li>تمرین: بازی حدس عدد، بررسی رمز، شمارش کلمات و ساخت جدول ضرب.</li>
+              <li>الگوریتم: حل مسئله با مثال‌های دستی قبل از کدنویسی.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۳ — ساختار داده و توابع</div>
+            <ul class="week-list">
+              <li><code>list</code>، <code>dict</code>، <code>tuple</code>، <code>set</code> و توابع.</li>
+              <li>پارامتر، مقدار بازگشتی، scope و شکستن مسئله به توابع کوچک.</li>
+              <li>تمرین: دفترچه مخاطبین و مدیریت فهرست هزینه‌ها.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۴ — فایل، خطا و پروژه کوچک</div>
+            <ul class="week-list">
+              <li>فایل‌خوانی و فایل‌نویسی، JSON، exception و دیباگ.</li>
+              <li>پروژه: Expense Tracker نسخه خط فرمان با ذخیره داده‌ها.</li>
+              <li>README شامل نصب، اجرا و نمونه ورودی/خروجی.</li>
+              <li>مرور: یک برنامه کوچک را از ابتدا بدون ویدئو بازنویسی کن.</li>
+            </ul>
+          </div>
+          <div class="month-resources">
+            <span class="month-resources-title">منابع اصلی ماه:</span>
+            <a href="https://cs50.harvard.edu/python/" target="_blank" rel="noopener">CS50P</a>
+            <a href="https://www.youtube.com/@coreyms" target="_blank" rel="noopener">Corey Schafer</a>
+          </div>
+          <div class="month-output">
+            <strong>خروجی ماه:</strong> یک پروژه قابل‌اجرا، حدود ۲۰ تا ۳۰ تمرین کوچک و مخزن GitHub مرتب. اگر هنوز در حلقه‌ها، توابع و دیکشنری‌ها مشکل داری، ماه را با عجله تمام نکن.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Month 2 -->
+    <article class="month-card">
+      <div class="month-header">
+        <div class="month-num">۲</div>
+        <div class="month-info">
+          <div class="month-title">Python کاربردی و کیفیت کد</div>
+          <div class="month-goal">هدف: از اسکریپت‌های ساده به کدی قابل‌نگهداری برسی.</div>
+        </div>
+        <div class="month-chevron">▼</div>
+      </div>
+      <div class="month-body">
+        <div class="month-content">
+          <div class="week-block">
+            <div class="week-title">هفته ۵ — ماژول‌ها و ساختار پروژه</div>
+            <ul class="week-list">
+              <li><code>import</code>، ماژول، پکیج و ساختار پوشه‌ها.</li>
+              <li>آشنایی با محیط مجازی و نصب وابستگی‌ها.</li>
+              <li>پروژه ماه اول را به چند فایل منطقی تقسیم کن.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۶ — شی‌گرایی و طراحی ساده</div>
+            <ul class="week-list">
+              <li><code>class</code>، <code>object</code>، متد و <code>__init__</code> در حد کاربرد.</li>
+              <li>تمرین: مدل‌سازی Task، User یا Expense.</li>
+              <li>یاد بگیر چه زمانی تابع ساده بهتر از کلاس است.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۷ — تست و خطایابی</div>
+            <ul class="week-list">
+              <li>تست‌های ساده با <code>pytest</code>، assertion، exception و logging مقدماتی.</li>
+              <li>چند خطای عمدی ایجاد کن و با debugger یا چاپ مرحله‌ای علتشان را پیدا کن.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۸ — پروژه مدیریت کارها</div>
+            <ul class="week-list">
+              <li>ساخت برنامه Task Manager با افزودن، حذف، ویرایش، فیلتر و ذخیره‌سازی.</li>
+              <li>تست رفتارهای اصلی و نوشتن README.</li>
+              <li>Git: branch، merge و رفع یک conflict آزمایشی.</li>
+            </ul>
+          </div>
+          <div class="month-resources">
+            <span class="month-resources-title">منابع ماه:</span>
+            <a href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener">Python Tutorial</a>
+            <a href="https://exercism.org/tracks/python" target="_blank" rel="noopener">Exercism Python</a>
+            <a href="https://skills.github.com/" target="_blank" rel="noopener">GitHub Skills</a>
+          </div>
+          <div class="month-output">
+            <strong>خروجی ماه:</strong> یک پروژه چندفایلی با تست و مستندات، و توانایی رفع خطا بدون تکیه کامل به AI.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Month 3 -->
+    <article class="month-card">
+      <div class="month-header">
+        <div class="month-num">۳</div>
+        <div class="month-info">
+          <div class="month-title">الگوریتم، SQL و داده</div>
+          <div class="month-goal">هدف: بتوانی داده را پردازش کنی، مسئله را مرحله‌به‌مرحله حل کنی و query بنویسی.</div>
+        </div>
+        <div class="month-chevron">▼</div>
+      </div>
+      <div class="month-body">
+        <div class="month-content">
+          <div class="week-block">
+            <div class="week-title">هفته ۹ — پیچیدگی و آرایه‌ها</div>
+            <ul class="week-list">
+              <li>مفهوم Big-O، جست‌وجوی خطی، آرایه و رشته.</li>
+              <li>مسائل ساده از NeetCode یا LeetCode.</li>
+              <li>برای هر مسئله، راه‌حل ساده و پیچیدگی زمانی را توضیح بده.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۱۰ — Hash map، Stack و Queue</div>
+            <ul class="week-list">
+              <li><code>dict</code> و <code>set</code> در مسائل واقعی، stack، queue و شمارش فراوانی.</li>
+              <li>تمرین: Two Sum، اعتبارسنجی پرانتزها و حذف تکراری‌ها.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۱۱ — SQL و پایگاه داده</div>
+            <ul class="week-list">
+              <li><code>SELECT</code>، <code>WHERE</code>، <code>ORDER BY</code>، <code>GROUP BY</code>، <code>JOIN</code> و aggregate.</li>
+              <li>طراحی دو یا سه جدول ساده و نوشتن queryهای کاربردی.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۱۲ — تحلیل داده</div>
+            <ul class="week-list">
+              <li>NumPy، pandas، پاک‌سازی داده و آمار توصیفی.</li>
+              <li>پروژه: تحلیل یک مجموعه‌داده عمومی و ارائه نمودار و یافته‌ها.</li>
+              <li>مرور سه ماه اول و تعیین شکاف‌های یادگیری.</li>
+            </ul>
+          </div>
+          <div class="month-resources">
+            <span class="month-resources-title">منابع ماه:</span>
+            <a href="https://neetcode.io/roadmap" target="_blank" rel="noopener">NeetCode Roadmap</a>
+            <a href="https://leetcode.com/problemset/" target="_blank" rel="noopener">LeetCode</a>
+            <a href="https://www.kaggle.com/learn" target="_blank" rel="noopener">Kaggle Learn</a>
+          </div>
+          <div class="month-output">
+            <strong>خروجی ماه:</strong> پروژه تحلیل داده قابل‌بازتولید، queryهای SQL و شروع یک عادت پایدار حل الگوریتم.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Month 4 -->
+    <article class="month-card">
+      <div class="month-header">
+        <div class="month-num">۴</div>
+        <div class="month-info">
+          <div class="month-title">آمار و Machine Learning</div>
+          <div class="month-goal">هدف: مدل بسازی، ارزیابی کنی و بفهمی چرا ممکن است اشتباه کند.</div>
+        </div>
+        <div class="month-chevron">▼</div>
+      </div>
+      <div class="month-body">
+        <div class="month-content">
+          <div class="week-block">
+            <div class="week-title">هفته ۱۳ — آمار پایه</div>
+            <ul class="week-list">
+              <li>احتمال، میانگین، میانه، واریانس، توزیع، نمونه و جامعه.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۱۴ — مفاهیم ML</div>
+            <ul class="week-list">
+              <li>train/test split، داده نامتوازن، data leakage، overfitting و baseline.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۱۵ — مدل‌سازی</div>
+            <ul class="week-list">
+              <li>رگرسیون، classification، درخت تصمیم، random forest و pipeline.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۱۶ — ارزیابی</div>
+            <ul class="week-list">
+              <li>معیارهای ارزیابی، تحلیل خطا، مقایسه دو مدل و مستندسازی نتیجه.</li>
+            </ul>
+          </div>
+          <div class="month-resources">
+            <span class="month-resources-title">منابع اصلی:</span>
+            <a href="https://www.youtube.com/@statquest" target="_blank" rel="noopener">StatQuest</a>
+            <a href="https://scikit-learn.org/stable/user_guide.html" target="_blank" rel="noopener">scikit-learn User Guide</a>
+            <a href="https://www.3blue1brown.com/topics/linear-algebra" target="_blank" rel="noopener">3Blue1Brown — Linear Algebra</a>
+          </div>
+          <div class="month-output">
+            <strong>پروژه ماه:</strong> مدل پیش‌بینی یا طبقه‌بندی روی یک دیتاست عمومی؛ شامل baseline، دو روش مقایسه‌شده، معیار ارزیابی و تحلیل نمونه‌های اشتباه.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Month 5 -->
+    <article class="month-card">
+      <div class="month-header">
+        <div class="month-num">۵</div>
+        <div class="month-info">
+          <div class="month-title">Backend و API</div>
+          <div class="month-goal">هدف: سرویس قابل‌استفاده بسازی تا بعداً مدل AI را به آن متصل کنی.</div>
+        </div>
+        <div class="month-chevron">▼</div>
+      </div>
+      <div class="month-body">
+        <div class="month-content">
+          <div class="week-block">
+            <div class="week-title">هفته ۱۷ — مبانی وب</div>
+            <ul class="week-list">
+              <li>HTTP، REST، JSON، request/response و status code.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۱۸ — FastAPI</div>
+            <ul class="week-list">
+              <li>FastAPI، route، Pydantic، اعتبارسنجی ورودی و مستندات خودکار.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۱۹ — دیتابیس در برنامه</div>
+            <ul class="week-list">
+              <li>SQL در برنامه، طراحی جدول، عملیات CRUD و مدیریت خطا.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۲۰ — تست و ساختار</div>
+            <ul class="week-list">
+              <li>تست API، تنظیمات محیط، logging و ساختار پوشه‌ها.</li>
+            </ul>
+          </div>
+          <div class="month-resources">
+            <span class="month-resources-title">منابع ماه:</span>
+            <a href="https://fastapi.tiangolo.com/tutorial/" target="_blank" rel="noopener">FastAPI Tutorial</a>
+            <a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener">Pro Git</a>
+          </div>
+          <div class="month-output">
+            <strong>پروژه ماه:</strong> یک API برای مدیریت اسناد، یادداشت‌ها یا وظایف که به دیتابیس وصل شود و تست داشته باشد.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Month 6 -->
+    <article class="month-card">
+      <div class="month-header">
+        <div class="month-num">۶</div>
+        <div class="month-info">
+          <div class="month-title">اولین محصول LLM</div>
+          <div class="month-goal">هدف: یک مسئله مشخص را با مدل زبانی حل کنی و محصولت را در اختیار دیگران قرار دهی.</div>
+        </div>
+        <div class="month-chevron">▼</div>
+      </div>
+      <div class="month-body">
+        <div class="month-content">
+          <div class="week-block">
+            <div class="week-title">هفته ۲۱ — اتصال به API مدل</div>
+            <ul class="week-list">
+              <li>اتصال به API مدل، پیام‌ها، system prompt و مدیریت کلیدهای دسترسی.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۲۲ — خروجی ساختاریافته</div>
+            <ul class="week-list">
+              <li>خروجی ساختاریافته، اعتبارسنجی، context window، token و محدودیت درخواست.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۲۳ — مدیریت خطا</div>
+            <ul class="week-list">
+              <li>مدیریت timeout، خطا، retry، هزینه و latency.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۲۴ — تکمیل و ارائه</div>
+            <ul class="week-list">
+              <li>تکمیل، تست و ارائه محصول.</li>
+            </ul>
+          </div>
+          <div class="month-output">
+            <strong>پروژه ماه:</strong> ابزار خلاصه‌سازی اسناد، دسته‌بندی بازخورد مشتری یا دستیار تخصصی کوچک. مسئله‌ای را انتخاب کن که بتوانی کیفیت جواب را بررسی کنی.
+            <br><br>
+            <strong>خروجی نیم‌سال:</strong> چند پروژه در GitHub، Python کاربردی، SQL و API، آشنایی عملی با ML و اولین LLM App. از این مرحله به بعد تمرکز اصلی به مهندسی AI نزدیک‌تر می‌شود.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Month 7 -->
+    <article class="month-card">
+      <div class="month-header">
+        <div class="month-num">۷</div>
+        <div class="month-info">
+          <div class="month-title">Embeddings و RAG</div>
+          <div class="month-goal">هدف: یک سیستم پرسش‌وپاسخ بسازی که از اسناد واقعی استفاده کند و منبع جواب را نشان بدهد.</div>
+        </div>
+        <div class="month-chevron">▼</div>
+      </div>
+      <div class="month-body">
+        <div class="month-content">
+          <div class="week-block">
+            <div class="week-title">هفته ۲۵ — مبانی Embedding</div>
+            <ul class="week-list">
+              <li>مفهوم embedding، شباهت برداری و semantic search.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۲۶ — Pipeline اسناد</div>
+            <ul class="week-list">
+              <li>خواندن سند، chunking، metadata و ساخت pipeline پردازش اسناد.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۲۷ — Retrieval و پاسخ</div>
+            <ul class="week-list">
+              <li>retrieval، رتبه‌بندی نتایج، اتصال به LLM و نمایش citation.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۲۸ — بهبود کیفیت</div>
+            <ul class="week-list">
+              <li>ساخت مجموعه‌ای از پرسش‌های تست، بررسی جواب‌های غلط و بهبود retrieval.</li>
+            </ul>
+          </div>
+          <div class="month-resources">
+            <span class="month-resources-title">منابع ماه:</span>
+            <a href="https://huggingface.co/learn/llm-course/" target="_blank" rel="noopener">Hugging Face LLM Course</a>
+            <a href="https://fullstackdeeplearning.com/course/" target="_blank" rel="noopener">Full Stack Deep Learning</a>
+          </div>
+          <div class="month-output">
+            <strong>پروژه ماه (Document Intelligence):</strong> کاربر سؤال می‌پرسد، سیستم سند مرتبط را بازیابی می‌کند و پاسخ همراه با ارجاع به منبع ارائه می‌دهد.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Month 8 -->
+    <article class="month-card">
+      <div class="month-header">
+        <div class="month-num">۸</div>
+        <div class="month-info">
+          <div class="month-title">ارزیابی، امنیت و کیفیت</div>
+          <div class="month-goal">هدف: بتوانی به‌جای گفتن «مدل خوب جواب می‌دهد»، با داده نشان بدهی سیستم چقدر خوب است.</div>
+        </div>
+        <div class="month-chevron">▼</div>
+      </div>
+      <div class="month-body">
+        <div class="month-content">
+          <div class="week-block">
+            <div class="week-title">هفته ۲۹ — مجموعه تست ثابت</div>
+            <ul class="week-list">
+              <li>ساخت مجموعه تست ثابت و تعریف معیارهای موفقیت.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۳۰ — ارزیابی RAG</div>
+            <ul class="week-list">
+              <li>ارزیابی retrieval و پاسخ؛ ثبت خطاهای رایج و بررسی نمونه‌ها.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۳۱ — امنیت</div>
+            <ul class="week-list">
+              <li>prompt injection، اعتبارسنجی ورودی، حریم خصوصی و جلوگیری از افشای داده.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۳۲ — مقایسه مدل‌ها</div>
+            <ul class="week-list">
+              <li>مقایسه دو مدل یا دو تنظیم مختلف از نظر کیفیت، هزینه و سرعت.</li>
+            </ul>
+          </div>
+          <div class="month-resources">
+            <span class="month-resources-title">منابع ماه:</span>
+            <a href="https://developers.openai.com/cookbook/" target="_blank" rel="noopener">OpenAI Cookbook</a>
+            <a href="https://developers.openai.com/api/docs/guides/evals" target="_blank" rel="noopener">راهنمای Evals</a>
+            <a href="https://madewithml.com/" target="_blank" rel="noopener">Made With ML</a>
+          </div>
+          <div class="month-output">
+            <strong>خروجی ماه:</strong> نسخه بهبودیافته RAG همراه با گزارش ارزیابی، نمونه خطاها و توضیح تغییراتی که نتیجه را بهتر کرده‌اند.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Month 9 -->
+    <article class="month-card">
+      <div class="month-header">
+        <div class="month-num">۹</div>
+        <div class="month-info">
+          <div class="month-title">ابزارها، workflowها و مدل‌های متن‌باز</div>
+          <div class="month-goal">هدف: از یک chatbot ساده به یک سیستم محدود و قابل‌کنترل با ابزارهای مشخص برسی.</div>
+        </div>
+        <div class="month-chevron">▼</div>
+      </div>
+      <div class="month-body">
+        <div class="month-content">
+          <div class="week-block">
+            <div class="week-title">هفته ۳۳ — Tool Calling</div>
+            <ul class="week-list">
+              <li>tool calling و اتصال مدل به APIهای بیرونی.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۳۴ — Workflow چندمرحله‌ای</div>
+            <ul class="week-list">
+              <li>workflowهای چندمرحله‌ای، مدیریت وضعیت و مسیر جایگزین هنگام خطا.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۳۵ — Hugging Face</div>
+            <ul class="week-list">
+              <li>آشنایی با Hugging Face، Transformers و اجرای یک مدل آماده.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۳۶ — مقایسه رویکردها</div>
+            <ul class="week-list">
+              <li>مقایسه prompting، RAG و fine-tuning از نظر هزینه، کیفیت و پیچیدگی.</li>
+            </ul>
+          </div>
+          <div class="month-output">
+            <strong>پروژه ماه:</strong> دستیار تخصصی که بتواند یک یا دو ابزار مشخص را فراخوانی کند، ورودی را اعتبارسنجی کند و هنگام شکست ابزار رفتار قابل‌پیش‌بینی داشته باشد.
+            <br><br>
+            <strong>هشدار مهم:</strong> در این مرحله دنبال ساخت یک agent کاملاً خودمختار و پیچیده نرو. کنترل‌پذیری، قابلیت آزمایش و وضوح رفتار از تعداد ابزارهایش مهم‌تر است.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Month 10 -->
+    <article class="month-card">
+      <div class="month-header">
+        <div class="month-num">۱۰</div>
+        <div class="month-info">
+          <div class="month-title">Production Engineering</div>
+          <div class="month-goal">هدف: پروژه‌ای داشته باشی که فقط روی لپ‌تاپ خودت کار نکند.</div>
+        </div>
+        <div class="month-chevron">▼</div>
+      </div>
+      <div class="month-body">
+        <div class="month-content">
+          <div class="week-block">
+            <div class="week-title">هفته ۳۷ — Docker</div>
+            <ul class="week-list">
+              <li>Docker، متغیرهای محیطی، مدیریت secrets و اجرای محلی قابل‌بازتولید.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۳۸ — استقرار API</div>
+            <ul class="week-list">
+              <li>استقرار API و مدیریت تنظیمات محیط production.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۳۹ — عملیاتی‌کردن</div>
+            <ul class="week-list">
+              <li>logging، timeout، retry، rate limit و مدیریت خطا.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۴۰ — CI</div>
+            <ul class="week-list">
+              <li>CI، اجرای خودکار تست‌ها و رفع مشکلات استقرار.</li>
+            </ul>
+          </div>
+          <div class="month-resources">
+            <span class="month-resources-title">منابع ماه:</span>
+            <a href="https://docs.docker.com/get-started/" target="_blank" rel="noopener">Docker Get Started</a>
+            <a href="https://docs.github.com/en/actions" target="_blank" rel="noopener">GitHub Actions</a>
+          </div>
+          <div class="month-output">
+            <strong>خروجی ماه:</strong> یک پروژه مستقرشده با README، تست، logging و دستور اجرای محلی. سرویس میزبانی را بر اساس هزینه، محدودیت‌ها و نیاز پروژه انتخاب کن.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Month 11 -->
+    <article class="month-card">
+      <div class="month-header">
+        <div class="month-num">۱۱</div>
+        <div class="month-info">
+          <div class="month-title">پروژه شاخص پورتفولیو</div>
+          <div class="month-goal">هدف: یک محصول بسازی که هویت حرفه‌ای تو را نشان بدهد.</div>
+        </div>
+        <div class="month-chevron">▼</div>
+      </div>
+      <div class="month-body">
+        <div class="month-content">
+          <div class="callout">
+            <strong>پیشنهاد اصلی برای تو:</strong> یک دستیار هوشمند تحلیل و جست‌وجوی اسناد چندزبانه است؛ چون چند مهارت کلیدی را یکجا به نمایش می‌گذارد: Python، API، دیتابیس، LLM، RAG، ارزیابی، تست و استقرار.
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۴۱ — تعریف مسئله</div>
+            <ul class="week-list">
+              <li>مشخص کن چه کسی از محصول استفاده می‌کند، چه مشکلی دارد و چرا راه‌حل تو مفید است.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۴۲ — نسخه اولیه</div>
+            <ul class="week-list">
+              <li>آپلود سند، پردازش متن، جست‌وجو و پاسخ همراه با منبع.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۴۳ — کیفیت و قابلیت اعتماد</div>
+            <ul class="week-list">
+              <li>تست‌های ثابت، تحلیل خطا، امنیت ورودی و اندازه‌گیری هزینه و latency.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۴۴ — ارائه</div>
+            <ul class="week-list">
+              <li>رابط کاربری مناسب، استقرار، ویدئوی دمو، مستندات معماری و گزارش محدودیت‌ها.</li>
+            </ul>
+          </div>
+          <div class="month-output">
+            <strong>نکته مهم:</strong> در این پروژه از AI برای نوشتن بخشی از کد کمک بگیر، اما هر بخش را بخوان، تست کن و مطمئن شو می‌توانی توضیح بدهی. این توانایی در مصاحبه و کار واقعی اهمیت زیادی دارد.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Month 12 -->
+    <article class="month-card">
+      <div class="month-header">
+        <div class="month-num">۱۲</div>
+        <div class="month-info">
+          <div class="month-title">رزومه، مصاحبه و ورود به بازار کار</div>
+          <div class="month-goal">هدف: آماده‌سازی کامل برای ورود به بازار کار و شروع درخواست هدفمند.</div>
+        </div>
+        <div class="month-chevron">▼</div>
+      </div>
+      <div class="month-body">
+        <div class="month-content">
+          <div class="week-block">
+            <div class="week-title">هفته ۴۵ — رزومه و پورتفولیو</div>
+            <ul class="week-list">
+              <li>رزومه انگلیسی، مرتب‌کردن GitHub و نوشتن case study پروژه‌ها.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۴۶ — مرور فنی</div>
+            <ul class="week-list">
+              <li>مرور Python، الگوریتم، SQL، HTTP، API و تست.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۴۷ — تمرین توضیح</div>
+            <ul class="week-list">
+              <li>تمرین توضیح معماری، تصمیم‌های فنی، ارزیابی RAG و مدیریت خطا به انگلیسی.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته ۴۸ — بررسی آگهی‌ها</div>
+            <ul class="week-list">
+              <li>بررسی آگهی‌های واقعی، تطبیق مهارت‌ها، آماده‌سازی درخواست‌ها و شروع ارسال هدفمند.</li>
+            </ul>
+          </div>
+          <div class="week-block">
+            <div class="week-title">هفته‌های ۴۹ تا ۵۲ — ارسال و مصاحبه</div>
+            <ul class="week-list">
+              <li>ادامه درخواست‌ها، مصاحبه‌های آزمایشی، اصلاح portfolio و بستن شکاف‌های مهم.</li>
+            </ul>
+          </div>
+          <div class="month-output">
+            <strong>نکته کلیدی:</strong> فقط تا ماه دوازدهم صبر نکن. از ماه دهم می‌توانی برای کارآموزی، موقعیت‌های junior و فرصت‌های Python Backend در تیم‌های AI اقدام کنی. اگر از یک آگهی رد شدی، مهارت‌های پرتکرار موردنیاز را ثبت کن و برایشان برنامه بگذار.
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ===== ALGORITHM ROADMAP ===== -->
+<section class="section" id="algorithm">
+  <span class="eyebrow">۳. مسیر حل الگوریتم و تمرین</span>
+  <h2 class="section-title">الگوریتم ابزار تقویت تفکر است، نه هدف اصلی</h2>
+  <p class="section-subtitle">
+    برای تو الگوریتم ابزار تقویت تفکر برنامه‌نویسی و آمادگی مصاحبه است؛ نباید آن‌قدر بزرگ شود که زمان ساخت پروژه‌های AI را ببلعد. هدف پیشنهادی شش ماه اول ۱۰۰ تا ۱۵۰ مسئله‌ای است که واقعاً فهمیده باشی. اگر تعداد کمتر است ولی راه‌حل‌ها را مستقل می‌نویسی و تحلیل می‌کنی، کیفیت یادگیری را فدای شمارش نکن.
+  </p>
+
+  <div class="algo-grid">
+    <div class="algo-table-card reveal">
+      <table class="algo-table">
+        <thead>
+          <tr>
+            <th>دوره</th>
+            <th>موضوع</th>
+            <th>هدف</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="course">ماه ۱</td><td>منطق، شرط و حلقه</td><td>حل مسئله‌های ساده با Python</td></tr>
+          <tr><td class="course">ماه ۲</td><td>رشته، لیست، دیکشنری و set</td><td>مسائل مقدماتی</td></tr>
+          <tr><td class="course">ماه ۳</td><td>Big-O، جست‌وجو، مرتب‌سازی و hash map</td><td>ساخت راه‌حل ساده و تحلیل آن</td></tr>
+          <tr><td class="course">ماه ۴</td><td>Two Pointers، Stack، Binary Search</td><td>افزایش سرعت و شناخت الگوها</td></tr>
+          <tr><td class="course">ماه ۵</td><td>Sliding Window، Linked List، Trees</td><td>مسائل Easy و برخی Medium</td></tr>
+          <tr><td class="course">ماه ۶</td><td>Heap و مقدمات Graph</td><td>تمرین مسائل ترکیبی</td></tr>
+          <tr><td class="course">ماه ۷–۹</td><td>Graph، BFS/DFS و DP مقدماتی</td><td>مرور نقاط ضعف و تمرین مصاحبه</td></tr>
+          <tr><td class="course">ماه ۱۰–۱۲</td><td>مرور موضوعات پرتکرار</td><td>تمرین زمان‌دار و توضیح راه‌حل</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="golden-rules reveal">
+      <h3>قانون طلایی حل مسئله</h3>
+      <ol>
+        <li>صورت سؤال را دقیق بخوان و چند مثال بساز.</li>
+        <li>قبل از کدنویسی، راه‌حل ساده را با زبان خودت بنویس.</li>
+        <li>خودت تلاش کن؛ در صورت گیرکردن از hint استفاده کن، نه فوراً جواب کامل.</li>
+        <li>پس از حل، پیچیدگی زمانی و حافظه را توضیح بده.</li>
+        <li>راه‌حل را بعداً بدون نگاه‌کردن دوباره بنویس.</li>
+        <li>اشتباهاتت را در یک دفترچه ثبت کن: مشکل از فهم سؤال بود، الگوریتم، پیاده‌سازی یا edge case؟</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="callout reveal">
+    <strong>منابع تمرین:</strong>
+    <a href="https://neetcode.io/roadmap" target="_blank" rel="noopener">NeetCode Roadmap</a> — مسیر موضوع‌محور ·
+    <a href="https://leetcode.com/problemset/" target="_blank" rel="noopener">LeetCode</a> — حل مسئله و تمرین مصاحبه ·
+    <a href="https://exercism.org/tracks/python" target="_blank" rel="noopener">Exercism Python</a> — تمرین کدنویسی و خوانایی ·
+    <a href="https://cs50.harvard.edu/python/" target="_blank" rel="noopener">CS50P Problem Sets</a> — تمرین‌های پایه Python.
+  </div>
+</section>
+
+<!-- ===== RESOURCES LIBRARY ===== -->
+<section class="section" id="resources">
+  <span class="eyebrow">۴. کتابخانه منابع اصلی مسیر</span>
+  <h2 class="section-title">منابعی که در طول سال به آن‌ها برمی‌گردی</h2>
+  <p class="section-subtitle">
+    نیازی نیست همه را هم‌زمان باز کنی؛ زمان استفاده‌شان در برنامه مشخص شده است. از فیلترها برای پیدا کردن منبع مرتبط با فاز فعلی‌ات استفاده کن.
+  </p>
+
+  <div class="resource-filters">
+    <button class="filter-chip active" data-filter="all">همه</button>
+    <button class="filter-chip" data-filter="python">Python</button>
+    <button class="filter-chip" data-filter="git">Git</button>
+    <button class="filter-chip" data-filter="algo">الگوریتم</button>
+    <button class="filter-chip" data-filter="ml">ML / آمار</button>
+    <button class="filter-chip" data-filter="ai">AI Engineering</button>
+    <button class="filter-chip" data-filter="deploy">استقرار</button>
+    <button class="filter-chip" data-filter="english">انگلیسی</button>
+  </div>
+
+  <div class="resources-grid" id="resourcesGrid">
+    <div class="resource-card" data-cat="python">
+      <span class="res-tag">PYTHON · ماه ۱–۲</span>
+      <h4>CS50P — Harvard</h4>
+      <p>دوره رسمی Python دانشگاه هاروارد با تمرین و پروژه‌های عملی.</p>
+      <span class="res-when">ماه ۱–۲</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://cs50.harvard.edu/python/" target="_blank" rel="noopener">وب‌سایت ←</a>
+        <a class="res-link" href="https://www.youtube.com/watch?v=nLRL_NcnK-4" target="_blank" rel="noopener">ویدئو ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="python">
+      <span class="res-tag">PYTHON · ماه ۱–۳</span>
+      <h4>Corey Schafer</h4>
+      <p>یوتیوبر مرجع برای رفع اشکال و فهم جزئیات Python.</p>
+      <span class="res-when">ماه ۱–۳</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://www.youtube.com/@coreyms" target="_blank" rel="noopener">یوتیوب ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="python">
+      <span class="res-tag">مستندات</span>
+      <h4>Python Tutorial</h4>
+      <p>مستندات رسمی Python برای مرجع سریع و یادگیری عمیق‌تر.</p>
+      <span class="res-when">همیشه</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener">مستندات ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="git">
+      <span class="res-tag">GIT · همه سال</span>
+      <h4>Pro Git</h4>
+      <p>کتاب رسمی و رایگان Git برای یادگیری عمیق از مبانی تا workflow.</p>
+      <span class="res-when">از هفته ۱</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener">کتاب ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="git">
+      <span class="res-tag">GITHUB</span>
+      <h4>GitHub Skills</h4>
+      <p>تمرین‌های تعاملی GitHub برای یادگیری workflow حرفه‌ای.</p>
+      <span class="res-when">همیشه</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://skills.github.com/" target="_blank" rel="noopener">شروع ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="algo">
+      <span class="res-tag">الگوریتم</span>
+      <h4>NeetCode Roadmap</h4>
+      <p>مسیر موضوع‌محور برای یادگیری الگوریتم از صفر تا آمادگی مصاحبه.</p>
+      <span class="res-when">ماه ۳–۱۲</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://neetcode.io/roadmap" target="_blank" rel="noopener">مسیر ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="algo">
+      <span class="res-tag">تمرین</span>
+      <h4>LeetCode</h4>
+      <p>بزرگ‌ترین منبع مسائل برنامه‌نویسی با تمرکز بر مصاحبه.</p>
+      <span class="res-when">ماه ۳–۱۲</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://leetcode.com/problemset/" target="_blank" rel="noopener">مسائل ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="algo">
+      <span class="res-tag">تمرین</span>
+      <h4>Exercism Python</h4>
+      <p>تمرین کدنویسی با تمرکز بر خوانایی و بازخورد مربی.</p>
+      <span class="res-when">ماه ۲–۴</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://exercism.org/tracks/python" target="_blank" rel="noopener">شروع ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="ml">
+      <span class="res-tag">آمار · ML</span>
+      <h4>Kaggle Learn</h4>
+      <p>دوره‌های کوتاه و کاربردی برای پایتون، pandas، ML و آمار.</p>
+      <span class="res-when">ماه ۳–۴</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://www.kaggle.com/learn" target="_blank" rel="noopener">دوره‌ها ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="ml">
+      <span class="res-tag">آمار · ML</span>
+      <h4>StatQuest</h4>
+      <p>آمار و ML به زبان ساده با ویدئوهای شهودی و واضح.</p>
+      <span class="res-when">ماه ۴ به بعد</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://www.youtube.com/@statquest" target="_blank" rel="noopener">یوتیوب ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="ml">
+      <span class="res-tag">ML</span>
+      <h4>scikit-learn User Guide</h4>
+      <p>مرجع رسمی scikit-learn برای پیاده‌سازی مدل‌های ML.</p>
+      <span class="res-when">ماه ۴</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://scikit-learn.org/stable/user_guide.html" target="_blank" rel="noopener">راهنما ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="ml">
+      <span class="res-tag">ریاضیات</span>
+      <h4>3Blue1Brown — Linear Algebra</h4>
+      <p>جبر خطی به‌صورت بصری و شهودی برای فهم عمیق.</p>
+      <span class="res-when">ماه ۴</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://www.3blue1brown.com/topics/linear-algebra" target="_blank" rel="noopener">ویدئو ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="ai">
+      <span class="res-tag">API · Backend</span>
+      <h4>FastAPI Tutorial</h4>
+      <p>آموزش رسمی FastAPI برای ساخت APIهای مدرن Python.</p>
+      <span class="res-when">ماه ۵</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://fastapi.tiangolo.com/tutorial/" target="_blank" rel="noopener">آموزش ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="ai">
+      <span class="res-tag">LLM</span>
+      <h4>Hugging Face LLM Course</h4>
+      <p>دوره رسمی Hugging Face برای کار با مدل‌های زبانی.</p>
+      <span class="res-when">ماه ۷ به بعد</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://huggingface.co/learn/llm-course/" target="_blank" rel="noopener">دوره ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="ai">
+      <span class="res-tag">AI Engineering</span>
+      <h4>Full Stack Deep Learning</h4>
+      <p>دوره جامع برای ساخت محصول AI از صفر تا production.</p>
+      <span class="res-when">ماه ۷–۸</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://fullstackdeeplearning.com/course/" target="_blank" rel="noopener">دوره ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="ai">
+      <span class="res-tag">LLM · ارزیابی</span>
+      <h4>OpenAI Cookbook</h4>
+      <p>مجموعه‌ای از الگوهای عملی برای کار با API مدل‌های زبانی.</p>
+      <span class="res-when">ماه ۸ به بعد</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://developers.openai.com/cookbook/" target="_blank" rel="noopener">Cookbook ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="ai">
+      <span class="res-tag">ارزیابی</span>
+      <h4>راهنمای Evals</h4>
+      <p>راهنمای رسمی OpenAI برای ارزیابی مدل‌های زبانی.</p>
+      <span class="res-when">ماه ۸</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://developers.openai.com/api/docs/guides/evals" target="_blank" rel="noopener">راهنما ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="ai">
+      <span class="res-tag">ML Engineering</span>
+      <h4>Made With ML</h4>
+      <p>دوره کاربردی برای ساخت سیستم ML واقعی از ابتدا تا انتها.</p>
+      <span class="res-when">ماه ۸–۹</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://madewithml.com/" target="_blank" rel="noopener">دوره ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="deploy">
+      <span class="res-tag">DOCKER</span>
+      <h4>Docker Get Started</h4>
+      <p>آموزش رسمی Docker برای کانتینری‌کردن و اجرای پروژه.</p>
+      <span class="res-when">ماه ۱۰</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://docs.docker.com/get-started/" target="_blank" rel="noopener">شروع ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="deploy">
+      <span class="res-tag">CI/CD</span>
+      <h4>GitHub Actions</h4>
+      <p>مستندات رسمی GitHub Actions برای خودکارسازی تست و استقرار.</p>
+      <span class="res-when">ماه ۱۰</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://docs.github.com/en/actions" target="_blank" rel="noopener">مستندات ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="english">
+      <span class="res-tag">انگلیسی</span>
+      <h4>British Council LearnEnglish</h4>
+      <p>منبع رسمی و رایگان British Council برای یادگیری انگلیسی.</p>
+      <span class="res-when">همه سال</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://learnenglish.britishcouncil.org/" target="_blank" rel="noopener">وب‌سایت ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="english">
+      <span class="res-tag">انگلیسی</span>
+      <h4>BBC Learning English</h4>
+      <p>دوره‌های تعاملی و ویدئوهای روزانه BBC برای تقویت زبان.</p>
+      <span class="res-when">همه سال</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://www.bbc.co.uk/learningenglish" target="_blank" rel="noopener">وب‌سایت ←</a>
+      </div>
+    </div>
+    <div class="resource-card" data-cat="english">
+      <span class="res-tag">انگلیسی</span>
+      <h4>VOA Learning English</h4>
+      <p>اخبار و مطالب ساده‌سازی‌شده برای یادگیری انگلیسی روزمره.</p>
+      <span class="res-when">همه سال</span>
+      <div style="margin-top:10px;">
+        <a class="res-link" href="https://learningenglish.voanews.com/" target="_blank" rel="noopener">وب‌سایت ←</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout reveal" style="margin-top:28px;">
+    <strong>دوره‌های فعلی خودت را چطور پیش ببری؟</strong> اگر دو دوره موضوع مشابه دارند، بخش‌های تکراری را حذف کن؛ لازم نیست صرفاً برای تیک‌زدن تمام ساعت‌های ویدئو را ببینی. مدت‌ها تقریبی‌اند و بر اساس رودمپت تنظیم شده‌اند. پروژه‌محوری را فدای تماشای ویدئو نکن.
+  </div>
+</section>
+
+<!-- ===== ENGLISH PLAN ===== -->
+<section class="section" id="english">
+  <span class="eyebrow">۵. برنامه انگلیسی — از مبتدی تا فنی کاربردی</span>
+  <h2 class="section-title">انگلیسی را از همان روز اول جلو ببر</h2>
+  <p class="section-subtitle">
+    قرار نیست یک سال صبر کنی تا انگلیسی‌ات خوب شود و بعد مستندات را بخوانی؛ باید از ماه اول با محتوای قابل‌فهم شروع کنی و به‌تدریج دشواری را بالا ببری. در پایان سال باید بتوانی درباره پروژه‌ات با جملات روشن و ساده صحبت کنی.
+  </p>
+
+  <div class="english-grid">
+    <div class="english-daily reveal">
+      <h3>برنامه روزانه ۷۵ دقیقه‌ای</h3>
+      <p>۶ روز در هفته — قابل تقسیم در طول روز</p>
+      <div class="english-activity">
+        <div>
+          <div class="english-activity-name">لغت</div>
+          <div class="english-activity-method">۵ تا ۱۰ لغت یا عبارت با جمله نمونه</div>
+        </div>
+        <div class="english-activity-time">۱۵ دقیقه</div>
+      </div>
+      <div class="english-activity">
+        <div>
+          <div class="english-activity-name">گرامر</div>
+          <div class="english-activity-method">یک موضوع کوچک و چند تمرین</div>
+        </div>
+        <div class="english-activity-time">۱۵ دقیقه</div>
+      </div>
+      <div class="english-activity">
+        <div>
+          <div class="english-activity-name">شنیدار و تلفظ</div>
+          <div class="english-activity-method">یک فایل کوتاه، گوش‌دادن مجدد و تکرار با صدا</div>
+        </div>
+        <div class="english-activity-time">۲۰ دقیقه</div>
+      </div>
+      <div class="english-activity">
+        <div>
+          <div class="english-activity-name">خواندن</div>
+          <div class="english-activity-method">متن متناسب با سطح؛ به‌تدریج مستندات فنی</div>
+        </div>
+        <div class="english-activity-time">۱۵ دقیقه</div>
+      </div>
+      <div class="english-activity">
+        <div>
+          <div class="english-activity-name">نوشتن یا صحبت‌کردن</div>
+          <div class="english-activity-method">معرفی، توضیح روز یا شرح یک پروژه</div>
+        </div>
+        <div class="english-activity-time">۱۰ دقیقه</div>
+      </div>
+    </div>
+
+    <div class="english-progression reveal">
+      <h3>برنامه ماهانه انگلیسی</h3>
+      <div class="english-month">
+        <div class="english-month-num">ماه ۱</div>
+        <div class="english-month-text">فعل‌های پایه، ضمایر، جمله مثبت و منفی، سؤال‌سازی و معرفی خود.</div>
+      </div>
+      <div class="english-month">
+        <div class="english-month-num">ماه ۲</div>
+        <div class="english-month-text">زمان حال و گذشته، مکالمات روزمره، توضیح کارهایی که انجام داده‌ای.</div>
+      </div>
+      <div class="english-month">
+        <div class="english-month-num">ماه ۳</div>
+        <div class="english-month-text">تثبیت گرامر و خواندن متن‌های ساده؛ خلاصه‌نویسی چند جمله‌ای.</div>
+      </div>
+      <div class="english-month">
+        <div class="english-month-num">ماه ۴</div>
+        <div class="english-month-text">لغات فنی، توضیح متغیر، تابع، خطا و مدل به انگلیسی ساده.</div>
+      </div>
+      <div class="english-month">
+        <div class="english-month-num">ماه ۵</div>
+        <div class="english-month-text">نوشتن README و توضیح نحوه اجرای API.</div>
+      </div>
+      <div class="english-month">
+        <div class="english-month-num">ماه ۶</div>
+        <div class="english-month-text">معرفی LLM App و توضیح قابلیت‌های آن.</div>
+      </div>
+      <div class="english-month">
+        <div class="english-month-num">ماه ۷</div>
+        <div class="english-month-text">خواندن READMEهای متن‌باز و فهم issueهای ساده.</div>
+      </div>
+      <div class="english-month">
+        <div class="english-month-num">ماه ۸</div>
+        <div class="english-month-text">نوشتن گزارش خطا و توضیح نتایج ارزیابی.</div>
+      </div>
+      <div class="english-month">
+        <div class="english-month-num">ماه ۹</div>
+        <div class="english-month-text">توضیح ابزارها و workflow پروژه به انگلیسی.</div>
+      </div>
+      <div class="english-month">
+        <div class="english-month-num">ماه ۱۰</div>
+        <div class="english-month-text">نوشتن مستندات استقرار و troubleshooting.</div>
+      </div>
+      <div class="english-month">
+        <div class="english-month-num">ماه ۱۱</div>
+        <div class="english-month-text">نوشتن case study پروژه نهایی.</div>
+      </div>
+      <div class="english-month">
+        <div class="english-month-num">ماه ۱۲</div>
+        <div class="english-month-text">رزومه، پاسخ به سؤالات مصاحبه و معرفی پروژه به زبان انگلیسی.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout reveal">
+    <strong>تمرین کلیدی:</strong> در پایان هر هفته، یک فایل صوتی یک تا دو دقیقه‌ای از خودت ضبط کن و درباره چیزی که یاد گرفته‌ای حرف بزن. حتی اگر جمله‌ها ساده‌اند، این تمرین را ادامه بده. در پایان سال باید بتوانی درباره پروژه‌ات با جملات روشن و ساده صحبت کنی؛ نه اینکه الزاماً لهجه بی‌نقصی داشته باشی.
+  </div>
+</section>
+
+<!-- ===== PEOPLE TO FOLLOW ===== -->
+<section class="section" id="people">
+  <span class="eyebrow">۶. چه کسانی را دنبال کنی</span>
+  <h2 class="section-title">یادگیری عمیق‌تر، نه چرخیدن بین پست‌ها</h2>
+  <p class="section-subtitle">
+    هدف از دنبال‌کردن افراد، یادگیری عمیق‌تر است؛ نه اینکه روزانه چند ساعت بین پست‌ها بچرخی. در سه ماه اول فقط Corey Schafer، NeetCode و StatQuest را به‌عنوان منابع آموزشی اصلی نگه دار؛ Karpathy را برای کنجکاوی دنبال کن. روزانه ۱۵ تا ۲۰ دقیقه برای X کافی است.
+  </p>
+
+  <div class="people-grid">
+    <article class="person-card reveal">
+      <div class="person-avatar">AK</div>
+      <div class="person-info">
+        <h4>Andrej Karpathy</h4>
+        <div class="person-role">برای فهم عمیق AI و شبکه‌های عصبی</div>
+        <p>از ماه سوم به بعد، ویدئوهای آموزشی‌اش را آرام‌آرام دنبال کن. در شروع، فهم شهودی مهم‌تر از درک تمام جزئیات ریاضی است.</p>
+        <div class="person-links">
+          <a class="person-link" href="https://www.youtube.com/@AndrejKarpathy" target="_blank" rel="noopener">YouTube</a>
+          <a class="person-link" href="https://x.com/karpathy" target="_blank" rel="noopener">X</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="person-card reveal">
+      <div class="person-avatar">CS</div>
+      <div class="person-info">
+        <h4>Corey Schafer</h4>
+        <div class="person-role">برای Python و مهندسی کد</div>
+        <p>از همان ماه اول برای موضوعاتی که در آن‌ها مشکل داری از ویدئوهای مشخصش استفاده کن.</p>
+        <div class="person-links">
+          <a class="person-link" href="https://www.youtube.com/@coreyms" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="person-card reveal">
+      <div class="person-avatar">CH</div>
+      <div class="person-info">
+        <h4>Chip Huyen</h4>
+        <div class="person-role">برای طراحی سیستم‌های AI در صنعت</div>
+        <p>از ماه ششم به بعد، نوشته‌هایش را برای فهم trade-offها، معماری و کیفیت سیستم دنبال کن.</p>
+        <div class="person-links">
+          <a class="person-link" href="https://huyenchip.com/" target="_blank" rel="noopener">وب‌سایت</a>
+          <a class="person-link" href="https://x.com/chipro" target="_blank" rel="noopener">X</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="person-card reveal">
+      <div class="person-avatar">EY</div>
+      <div class="person-info">
+        <h4>Eugene Yan</h4>
+        <div class="person-role">برای مهندسی ML و سیستم‌های واقعی</div>
+        <p>برای ماه‌های ۷ تا ۱۲ مناسب است؛ به‌خصوص برای دیدن روش ارزیابی و ساخت سیستم‌های قابل‌اعتماد.</p>
+        <div class="person-links">
+          <a class="person-link" href="https://eugeneyan.com/start-here/" target="_blank" rel="noopener">نوشته‌ها</a>
+          <a class="person-link" href="https://x.com/eugeneyan" target="_blank" rel="noopener">X</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="person-card reveal">
+      <div class="person-avatar">HH</div>
+      <div class="person-info">
+        <h4>Hamel Husain</h4>
+        <div class="person-role">برای ارزیابی LLM و تحلیل خطا</div>
+        <p>در ماه‌های ۷ تا ۱۰ از روش‌های ارزیابی و ساخت مجموعه تست ایده بگیر.</p>
+        <div class="person-links">
+          <a class="person-link" href="https://x.com/HamelHusain" target="_blank" rel="noopener">X</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="person-card reveal">
+      <div class="person-avatar">HF</div>
+      <div class="person-info">
+        <h4>Hugging Face</h4>
+        <div class="person-role">برای مدل‌های متن‌باز و اکوسیستم AI</div>
+        <p>از ماه هفتم، برای آشنایی با مدل‌های آماده، ابزارها و پروژه‌های جامعه AI.</p>
+        <div class="person-links">
+          <a class="person-link" href="https://www.youtube.com/@HuggingFace" target="_blank" rel="noopener">YouTube</a>
+          <a class="person-link" href="https://x.com/huggingface" target="_blank" rel="noopener">X</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="person-card reveal">
+      <div class="person-avatar">SQ</div>
+      <div class="person-info">
+        <h4>StatQuest (Joshua Starmer)</h4>
+        <div class="person-role">برای آمار و ML به زبان ساده</div>
+        <p>از ماه چهارم به بعد، هر مفهومی را که در آمار یا ML متوجه نمی‌شوی با ویدئوی مربوط به همان موضوع مرور کن.</p>
+        <div class="person-links">
+          <a class="person-link" href="https://www.youtube.com/@statquest" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="callout reveal">
+    <strong>قوانین استفاده از شبکه‌های اجتماعی:</strong> هر هفته یک چیز را از دنیای AI انتخاب کن و واقعاً پیاده‌سازی یا بررسی کن. تعداد فالوورها و میزان ترندشدن یک ابزار را معیار یادگیری قرار نده. اگر پستی ایده خوبی داشت، آن را ذخیره کن و بعداً آزمایش کن.
+  </div>
+</section>
+
+<!-- ===== CAREER PLAN ===== -->
+<section class="section" id="career">
+  <span class="eyebrow">۷. برنامه شغلی از ماه اول تا پایان سال</span>
+  <h2 class="section-title">با ذهنیت بازار کار یاد بگیر</h2>
+  <p class="section-subtitle">
+    تو از همان ابتدا با ذهنیت بازار کار یاد می‌گیری، اما نباید از ماه اول نگران استخدام باشی. در هر مرحله باید خروجی مناسب همان سطح را بسازی. عنوان شغلی AI Engineer در شرکت‌های مختلف معانی متفاوتی دارد؛ از ماه ششم به بعد آگهی‌های واقعی را بررسی کن.
+  </p>
+
+  <div class="career-stages reveal">
+    <table class="career-table">
+      <thead>
+        <tr>
+          <th>بازه</th>
+          <th>عنوان یا هدف حرفه‌ای</th>
+          <th>کاری که باید انجام بدهی</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="stage-period">ماه ۱–۳</td>
+          <td class="stage-title">Python Developer در حال یادگیری</td>
+          <td>GitHub، کدنویسی مستقل، تست و پروژه‌های پایه</td>
+        </tr>
+        <tr>
+          <td class="stage-period">ماه ۴–۶</td>
+          <td class="stage-title">Python / AI App Developer در حال رشد</td>
+          <td>ML، API و اولین LLM App</td>
+        </tr>
+        <tr>
+          <td class="stage-period">ماه ۷–۹</td>
+          <td class="stage-title">Junior AI Engineering Candidate</td>
+          <td>RAG، ارزیابی، امنیت و پروژه قابل‌استفاده</td>
+        </tr>
+        <tr>
+          <td class="stage-period">ماه ۱۰–۱۲</td>
+          <td class="stage-title">متقاضی موقعیت‌های مرتبط</td>
+          <td>رزومه، پورتفولیو، تمرین مصاحبه و درخواست هدفمند</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="career-checklist reveal">
+    <h3>چک‌لیست رزومه و پورتفولیو</h3>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:18px;">تا پایان سال تلاش کن این موارد را داشته باشی:</p>
+    <ul>
+      <li>حداقل سه پروژه کامل و قابل‌توضیح</li>
+      <li>یک پروژه AI با ارزیابی واقعی و تحلیل خطا</li>
+      <li>حداقل یک پروژه با نسخه قابل‌اجرا یا مستقرشده</li>
+      <li>README انگلیسی با دستور اجرا و نمونه استفاده</li>
+      <li>تست‌های واقعی برای مسیرهای مهم برنامه</li>
+      <li>توضیح معماری و محدودیت‌های هر پروژه</li>
+      <li>رزومه انگلیسی متناسب با آگهی هدف</li>
+      <li>تمرین معرفی پروژه و پاسخ به سؤالات فنی</li>
+      <li>جدول پیگیری درخواست‌های شغلی و مهارت‌های موردنیاز</li>
+      <li>شروع درخواست برای فرصت‌های مناسب از ماه دهم</li>
+    </ul>
+  </div>
+
+  <div class="callout reveal">
+    <strong>نکته مهم:</strong> در رزومه به‌جای ادعاهای کلی، شواهد واقعی بیاور. اگر کیفیت RAG را سنجیده‌ای، روش و نتیجه را توضیح بده. اگر هزینه یا latency را بهبود داده‌ای، قبل و بعد را ثبت کن. اگر پروژه فقط یک demo است، آن را به‌عنوان محصول production-ready معرفی نکن.
+  </div>
+</section>
+
+<!-- ===== AI LAB ===== -->
+<section class="section" id="lab">
+  <span class="eyebrow">۸. آزمایشگاه شخصی AI</span>
+  <h2 class="section-title">برای اینکه فقط دنبال استخدام نباشی</h2>
+  <p class="section-subtitle">
+    این بخش یکی از مهم‌ترین تفاوت‌های مسیر تو با یک رودمپ صرفاً شغلی است. تو گفتی عاشق AI هستی؛ پس باید جایی برای کنجکاوی علمی هم داشته باشی. هر هفته چهار ساعت از برنامه را به یک موضوع انتخابی اختصاص بده.
+  </p>
+
+  <div class="lab-grid">
+    <div class="lab-intro reveal">
+      <h3>موضوعات هر بازه زمانی</h3>
+      <p>
+        آزمایشگاه شخصی تو جایی است که می‌توانی بدون فشار شغلی، صرفاً از کنجکاوی، چیزی را امتحان کنی. این چهار ساعت در هفته، سرمایه‌گذاری روی هویت تو به‌عنوان مهندس است — کسی که فقط ابزارها را بلد نیست، بلکه آن‌ها را درک می‌کند.
+      </p>
+      <div class="lab-stages">
+        <div class="lab-stage">
+          <div class="lab-stage-num">۱</div>
+          <div><strong>ماه‌های ۱–۳:</strong> ویدئوهای شهودی درباره الگوریتم، شبکه عصبی و نحوه کار مدل‌ها.</div>
+        </div>
+        <div class="lab-stage">
+          <div class="lab-stage-num">۲</div>
+          <div><strong>ماه‌های ۴–۶:</strong> آزمایش‌های کوچک ML و مقایسه مدل‌ها.</div>
+        </div>
+        <div class="lab-stage">
+          <div class="lab-stage-num">۳</div>
+          <div><strong>ماه‌های ۷–۹:</strong> بررسی embedding، RAG، ارزیابی و مدل‌های متن‌باز.</div>
+        </div>
+        <div class="lab-stage">
+          <div class="lab-stage-num">۴</div>
+          <div><strong>ماه‌های ۱۰–۱۲:</strong> خواندن مقاله‌های منتخب و آزمایش ایده‌های شخصی.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lab-template reveal">
+      <h3>قالب یادداشت آزمایش</h3>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:18px;">برای هر آزمایش، یک یادداشت کوتاه بنویس:</p>
+      <div class="lab-question">
+        <strong>۱. سؤال من چه بود؟</strong>
+        قبل از شروع، با یک جمله مشخص کن می‌خواهی چه چیزی را بفهمی.
+      </div>
+      <div class="lab-question">
+        <strong>۲. چه چیزی را پیش‌بینی می‌کردم؟</strong>
+        فرضیه‌ات را بنویس، حتی اگر احمقانه به نظر برسد.
+      </div>
+      <div class="lab-question">
+        <strong>۳. چه آزمایشی انجام دادم؟</strong>
+        مراحل را به ترتیب و قابل‌بازتولید ثبت کن.
+      </div>
+      <div class="lab-question">
+        <strong>۴. چه نتیجه‌ای گرفتم؟</strong>
+        داده و مشاهده را جدا از تفسیر بنویس.
+      </div>
+      <div class="lab-question">
+        <strong>۵. چه چیزی را هنوز نمی‌دانم؟</strong>
+        مهم‌ترین بخش — سؤال‌های باز برای هفته بعد.
+      </div>
+    </div>
+  </div>
+
+  <div class="callout reveal">
+    <strong>مسیر آینده:</strong> اگر بعد از یک سال متوجه شدی بیشتر از ساخت محصول به خود مدل‌ها، ریاضیات و پژوهش علاقه داری، می‌توانی در سال دوم به سمت ML Engineering یا مسیر پژوهشی‌تر بروی. این برنامه درها را برایت نمی‌بندد.
+  </div>
+</section>
+
+<!-- ===== PROGRESS TRACKER ===== -->
+<section class="section" id="progress">
+  <span class="eyebrow">۹. سیستم سنجش پیشرفت</span>
+  <h2 class="section-title">هر هفته ساعت مطالعه را ثبت نکن؛ خروجی را بسنج</h2>
+  <p class="section-subtitle">
+    این چک‌لیست هفتگی به‌صورت تعاملی عمل می‌کند — پیشرفت تو در مرورگر ذخیره می‌شود و با رفرش هم از بین نمی‌رود. در پایان هر هفته آن را بازنشانی کن و برای هفته جدید آماده شو.
+  </p>
+
+  <div class="tracker-grid">
+    <div class="tracker-card reveal">
+      <div class="tracker-header">
+        <h3>چک‌لیست هفتگی تو</h3>
+        <div class="tracker-counter"><span id="checklistDone">0</span> / 7</div>
+      </div>
+      <div class="tracker-progress-bar">
+        <div class="tracker-progress-fill" id="trackerFill"></div>
+      </div>
+      <ul class="checklist" id="checklist">
+        <li class="checklist-item" data-id="learn">
+          <div class="checkbox"></div>
+          <div class="checklist-content">
+            <div class="checklist-label">یادگیری</div>
+            <div class="checklist-cat">یک مفهوم را بدون ویدئو یا یادداشت توضیح دادم</div>
+          </div>
+        </li>
+        <li class="checklist-item" data-id="code">
+          <div class="checkbox"></div>
+          <div class="checklist-content">
+            <div class="checklist-label">کدنویسی</div>
+            <div class="checklist-cat">کد یا بخشی از پروژه را مستقل پیاده‌سازی کردم</div>
+          </div>
+        </li>
+        <li class="checklist-item" data-id="algo">
+          <div class="checkbox"></div>
+          <div class="checklist-content">
+            <div class="checklist-label">حل مسئله</div>
+            <div class="checklist-cat">مسئله حل کردم و اشتباهات قبلی را مرور کردم</div>
+          </div>
+        </li>
+        <li class="checklist-item" data-id="quality">
+          <div class="checkbox"></div>
+          <div class="checklist-content">
+            <div class="checklist-label">کیفیت</div>
+            <div class="checklist-cat">تست نوشتم یا باگ واقعی را برطرف کردم</div>
+          </div>
+        </li>
+        <li class="checklist-item" data-id="english">
+          <div class="checkbox"></div>
+          <div class="checklist-content">
+            <div class="checklist-label">انگلیسی</div>
+            <div class="checklist-cat">یک متن فنی خواندم یا توضیحی نوشتم</div>
+          </div>
+        </li>
+        <li class="checklist-item" data-id="curiosity">
+          <div class="checkbox"></div>
+          <div class="checklist-content">
+            <div class="checklist-label">کنجکاوی AI</div>
+            <div class="checklist-cat">یک آزمایش یا یادداشت فنی ثبت کردم</div>
+          </div>
+        </li>
+        <li class="checklist-item" data-id="review">
+          <div class="checkbox"></div>
+          <div class="checklist-content">
+            <div class="checklist-label">مرور هفتگی</div>
+            <div class="checklist-cat">پیشرفت و برنامه هفته بعد را بررسی کردم</div>
+          </div>
+        </li>
+      </ul>
+      <div class="tracker-actions">
+        <button class="tracker-btn" id="resetChecklist">↻ بازنشانی هفته جدید</button>
+        <button class="tracker-btn" id="copyChecklist">⧉ کپی چک‌لیست</button>
+      </div>
+    </div>
+
+    <div class="reflection-card reveal">
+      <h3>سؤال‌های پایان ماه</h3>
+      <p>در پایان هر ماه، این سه سؤال را بنویس و پاسخ بده:</p>
+      <div class="reflection-q">
+        <strong>۱. چه چیزی را حالا می‌توانم بسازم؟</strong>
+        چه چیزی را حالا می‌توانم مستقل بسازم که ماه قبل نمی‌توانستم؟
+      </div>
+      <div class="reflection-q">
+        <strong>۲. شاهد یادگیری من؟</strong>
+        کدام پروژه یا تمرین ثابت می‌کند که واقعاً یاد گرفته‌ام؟
+      </div>
+      <div class="reflection-q">
+        <strong>۳. شکاف ماه بعد؟</strong>
+        مهم‌ترین شکاف مهارتی من برای ماه بعد چیست؟
+      </div>
+      <div class="callout" style="margin-top:18px;margin-bottom:0;">
+        اگر دو هفته متوالی برنامه سنگین شد، ساعت مطالعه را کمی کم کن و خروجی‌های اصلی را حفظ کن. استمرار یک‌ساله از چند هفته مطالعه افراطی ارزشمندتر است.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== YEAR-END GOALS ===== -->
+<section class="section" id="goals">
+  <span class="eyebrow">۱۰. اهداف قابل‌اندازه‌گیری در پایان سال</span>
+  <h2 class="section-title">هدف‌های پیشنهادی — نه تضمین نتیجه</h2>
+  <p class="section-subtitle">
+    این‌ها اهداف پیشنهادی‌اند که اگر با استمرار دنبال کنی، در پایان سال به آن‌ها نزدیک خواهی بود. در رزومه به‌جای ادعاهای کلی، شواهد واقعی بیاور.
+  </p>
+
+  <div class="goals-table-card reveal">
+    <table class="goals-table">
+      <thead>
+        <tr>
+          <th>حوزه</th>
+          <th>هدف پایان سال</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="goal-area">Python</td><td>توانایی ساخت و نگهداری پروژه چندفایلی با تست</td></tr>
+        <tr><td class="goal-area">Git/GitHub</td><td>تاریخچه مرتب، branch و workflow قابل‌فهم</td></tr>
+        <tr><td class="goal-area">الگوریتم</td><td>حدود ۱۰۰–۱۵۰ مسئله باکیفیت در شش ماه اول، سپس مرور هدفمند</td></tr>
+        <tr><td class="goal-area">SQL و API</td><td>توانایی ساخت سرویس و کار با دیتابیس</td></tr>
+        <tr><td class="goal-area">ML</td><td>توانایی ساخت baseline، ارزیابی و تحلیل خطا</td></tr>
+        <tr><td class="goal-area">LLM</td><td>توانایی ساخت اپلیکیشن با API، مدیریت خطا و هزینه</td></tr>
+        <tr><td class="goal-area">RAG</td><td>سیستم با بازیابی و ارزیابی قابل‌اندازه‌گیری</td></tr>
+        <tr><td class="goal-area">Production</td><td>حداقل یک پروژه مستقرشده با تست و مستندات</td></tr>
+        <tr><td class="goal-area">Portfolio</td><td>سه پروژه کامل و یک پروژه شاخص</td></tr>
+        <tr><td class="goal-area">انگلیسی</td><td>خواندن مستندات و توضیح پروژه با جملات ساده و روشن</td></tr>
+        <tr><td class="goal-area">Career</td><td>رزومه، تمرین مصاحبه و درخواست‌های هدفمند</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== FINAL SUMMARY ===== -->
+<section class="section" id="summary">
+  <span class="eyebrow">جمع‌بندی نهایی</span>
+  <h2 class="section-title">مسیر اصلی تو</h2>
+  <p class="section-subtitle">
+    در پایان سال، هدف ما صرفاً کسی نیست که ابزارهای AI را می‌شناسد؛ هدف، یک مهندس در حال رشد است که می‌تواند مسئله را بفهمد، سیستم بسازد، کیفیت را اندازه بگیرد و درباره کارش فنی و روشن صحبت کند.
+  </p>
+
+  <div class="summary-section reveal">
+    <h2>این مسیر را به‌عنوان نقشه اصلی نگه دار</h2>
+    <p>
+      هر هفته اجرا کن، هر ماه بازبینی کن و بر اساس پروژه‌هایی که واقعاً ساخته‌ای، مسیر را اصلاح کن. لازم نیست از روز اول همه چیز را بدانی — کافی است در هر مرحله، یک مهارت را به سطحی برسانی که بتوانی با آن چیزی واقعی بسازی.
+    </p>
+    <div class="summary-path">
+      <span>Python</span><span class="arrow">←</span>
+      <span>Git و تست</span><span class="arrow">←</span>
+      <span>الگوریتم و SQL</span><span class="arrow">←</span>
+      <span>داده و ML</span><span class="arrow">←</span>
+      <span>FastAPI</span><span class="arrow">←</span>
+      <span>LLM Apps</span><span class="arrow">←</span>
+      <span>RAG</span><span class="arrow">←</span>
+      <span>Evaluation</span><span class="arrow">←</span>
+      <span>Docker</span><span class="arrow">←</span>
+      <span>Portfolio</span>
+    </div>
+    <p style="font-size:15px;margin-top:24px;">
+      در کنارش، انگلیسی را هر روز ادامه می‌دهی و هر هفته چند ساعت را برای کشف و آزمایش موضوعات تازه AI نگه می‌داری. این ترکیب از نظم، کنجکاوی و خروجی واقعی است که تو را از یک یادگیرنده صرف به یک مهندس تبدیل می‌کند.
+    </p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-brand">مسیر یک‌ساله AI Engineer</div>
+  <p>برنامه شخصی‌سازی‌شده · ۱۲ ماه · ۵۲ هفته · برنامه‌نویسی، AI Engineering، الگوریتم، پروژه، انگلیسی و مسیر شغلی</p>
+  <p style="font-size:12px;color:var(--text-faint);">هر هفته اجرا کن، هر ماه بازبینی کن، هر سال به مسیرت نزدیک‌تر شو.</p>
+  <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <span>↑</span> بازگشت به بالا
+  </button>
+</footer>
+
+<script>
+// ===== Theme Toggle =====
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('theme') || 'light';
+if (savedTheme === 'dark') {
+  document.documentElement.setAttribute('data-theme', 'dark');
+  themeToggle.textContent = '☀';
+}
+themeToggle.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-theme');
+  if (current === 'dark') {
+    document.documentElement.removeAttribute('data-theme');
+    localStorage.setItem('theme', 'light');
+    themeToggle.textContent = '🌙';
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+    themeToggle.textContent = '☀';
+  }
+});
+
+// ===== Mobile Menu =====
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  menuToggle.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+});
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.textContent = '☰';
+  });
+});
+
+// ===== Reading Progress Bar =====
+const progressBar = document.getElementById('readingProgress');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = (scrollTop / docHeight) * 100;
+  progressBar.style.width = pct + '%';
+}, { passive: true });
+
+// ===== Months Accordion =====
+document.querySelectorAll('.month-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const card = header.parentElement;
+    card.classList.toggle('open');
+  });
+});
+// Open first month by default
+document.querySelector('.month-card').classList.add('open');
+
+// ===== Resource Filters =====
+const filterChips = document.querySelectorAll('.filter-chip');
+const resourceCards = document.querySelectorAll('.resource-card');
+filterChips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    filterChips.forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    const filter = chip.dataset.filter;
+    resourceCards.forEach(card => {
+      if (filter === 'all' || card.dataset.cat === filter) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+// ===== Checklist with localStorage =====
+const checklistItems = document.querySelectorAll('.checklist-item');
+const checklistDone = document.getElementById('checklistDone');
+const trackerFill = document.getElementById('trackerFill');
+
+function updateTracker() {
+  const doneCount = document.querySelectorAll('.checklist-item.done').length;
+  checklistDone.textContent = doneCount;
+  trackerFill.style.width = (doneCount / 7) * 100 + '%';
+}
+
+function loadChecklist() {
+  const saved = JSON.parse(localStorage.getItem('weeklyChecklist') || '{}');
+  checklistItems.forEach(item => {
+    const id = item.dataset.id;
+    if (saved[id]) {
+      item.classList.add('done');
+    }
+  });
+  updateTracker();
+}
+
+checklistItems.forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('done');
+    const saved = JSON.parse(localStorage.getItem('weeklyChecklist') || '{}');
+    saved[item.dataset.id] = item.classList.contains('done');
+    localStorage.setItem('weeklyChecklist', JSON.stringify(saved));
+    updateTracker();
+  });
+});
+
+document.getElementById('resetChecklist').addEventListener('click', () => {
+  if (confirm('چک‌لیست هفتگی بازنشانی شود؟')) {
+    checklistItems.forEach(item => item.classList.remove('done'));
+    localStorage.removeItem('weeklyChecklist');
+    updateTracker();
+  }
+});
+
+document.getElementById('copyChecklist').addEventListener('click', () => {
+  const items = Array.from(checklistItems).map(item => {
+    const label = item.querySelector('.checklist-label').textContent;
+    const done = item.classList.contains('done') ? '✅' : '⬜';
+    return `${done} ${label}`;
+  });
+  const text = '📋 چک‌لیست هفتگی من\n\n' + items.join('\n');
+  navigator.clipboard.writeText(text).then(() => {
+    alert('چک‌لیست در کلیپ‌بورد کپی شد!');
+  }).catch(() => {
+    alert('امکان کپی نیست. لطفاً دستی کپی کن.');
+  });
+});
+
+loadChecklist();
+
+// ===== Reveal on Scroll =====
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+revealEls.forEach(el => observer.observe(el));
+
+// ===== Animated Counter =====
+const counters = document.querySelectorAll('.counter');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const target = parseInt(entry.target.parentElement.dataset.target);
+      let current = 0;
+      const step = Math.max(1, Math.floor(target / 40));
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        // Display as Persian digits
+        entry.target.textContent = current.toLocaleString('fa-IR');
+      }, 30);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterObserver.observe(c));
+
+// ===== Smooth Scroll for Nav Links (already handled by CSS, but add offset) =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
